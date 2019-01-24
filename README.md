@@ -1,2 +1,2 @@
 # Keystickers
-Second generation "paper" Bitcoin wallets that stick.
+Second generation "paper" Bitcoin wallets: Satoshiware.org/Keystickers
