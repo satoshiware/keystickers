@@ -1,0 +1,35 @@
+<component name="ProjectDictionaryState">
+  <dictionary name="Satoshiware">
+    <words>
+      <w>arraysize</w>
+      <w>baudrate</w>
+      <w>bech</w>
+      <w>bitcoin</w>
+      <w>buffersize</w>
+      <w>checksums</w>
+      <w>chksm</w>
+      <w>closestream</w>
+      <w>fileschecked</w>
+      <w>fillbuffer</w>
+      <w>fillstack</w>
+      <w>imageable</w>
+      <w>keysticker</w>
+      <w>keystickers</w>
+      <w>mainnet</w>
+      <w>numfolds</w>
+      <w>openstream</w>
+      <w>opentimeout</w>
+      <w>pickens</w>
+      <w>preferredfonts</w>
+      <w>premultiplied</w>
+      <w>priv</w>
+      <w>readstream</w>
+      <w>rimg</w>
+      <w>satoshiware</w>
+      <w>segwit</w>
+      <w>streamreadsize</w>
+      <w>testnet</w>
+      <w>wpkh</w>
+    </words>
+  </dictionary>
+</component>

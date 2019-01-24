@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Keystickers:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/QCverify.form" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="acb269bc-c803-441d-84c8-69e85a243a66" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Keystickers$KSKey.ic" NAME="KSKey Coverage Results" MODIFIED="1536783932547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.satoshiware.keystickers.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Java" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1989">
+              <caret line="257" column="63" selection-start-line="257" selection-start-column="63" selection-end-line="257" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#actionPerformed#0;class#3641:4468" />
+                <element signature="class#4521:5204" />
+                <element signature="class#5250:5485" />
+                <element signature="class#5535:6693" />
+                <element signature="class#6741:6897" />
+                <element signature="class#6940:10335" />
+                <element signature="class#10380:10535" />
+                <element signature="e#10785#10840#1" />
+                <element signature="method#print#0;class#Main#0" />
+                <element signature="class#writeQCFile#0;class#Main#0" />
+                <element signature="method#writeQCFile#0;class#writeQCFile#0;class#Main#0" />
+                <element signature="method#write#0;class#writeQCFile#0;class#Main#0" />
+                <element signature="method#writeGenInfo#0;class#writeQCFile#0;class#Main#0" />
+                <element signature="method#close#0;class#writeQCFile#0;class#Main#0" />
+                <element signature="class#ComboItem#0;class#Main#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Font.PLAIN</find>
+      <find>ppi</find>
+      <find>PPW</find>
+      <find>getLeading</find>
+      <find>args</find>
+      <find>arraycopy</find>
+      <find>entropy</find>
+      <find>org</find>
+      <find>j</find>
+      <find>Bech32Data</find>
+      <find>?????</find>
+      <find>KSK</find>
+      <find>lblRandomInfo</find>
+      <find>lblQCDestFile</find>
+      <find>////</find>
+      <find>PrinterException</find>
+      <find>PREFERREDFONTS</find>
+      <find>System.out.println</find>
+      <find>System.out.print</find>
+      <find>run</find>
+      <find>mainPanel</find>
+      <find>rndSrc</find>
+      <find>txtTotalPages</find>
+      <find>close</find>
+      <find>stream</find>
+      <find>checkGrayScaleTest</find>
+      <find>500</find>
+      <find>WIF</find>
+      <find>gray</find>
+      <find>comboKeyType</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomTrueRNGV3.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/InfiniteNoise.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/NeuG.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/OneRNG.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/TRNGN1.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/TrueRNGV3.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/BitBabbler.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/BlankArea.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/seeder.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/MainGUI.form" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/MainGUI.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomSecure.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomFortuna.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomInterface.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/QCVerification.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/QCverify.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/SecureRandom.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/FortunaGenerator2.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/FortunaGeneratorx.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/MouseEntropy.form" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/asdf.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/HelloWorldPrinter.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/test.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/DumpNames.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpNames.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpDevices.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/javax.usb.properties" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpDeviceTree.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/ChaosKey.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/AraneusAleaII.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/TestRandom.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/testrnd/TestRandom.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/testrnd/ExtRNG.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/test.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/Stack.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/QCverify.form" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/FortunaGenerator.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/KSGenerator.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/random/ExtRNG.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.form" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/Bech32.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/MouseEntropy.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/KSKey.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/KSSheet.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/QCApp.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/sha.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/FileCheckSumSHA.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/temp.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.java" />
+        <option value="$PROJECT_DIR$/src/org/satoshiware/keystickers/JarChecksums.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1661" />
+    <option name="y" value="77" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Keystickers-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Keystickers-master" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Keystickers-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Keystickers-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="keystickers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Keystickers-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="keystickers" type="462c0819:PsiDirectoryNode" />
+              <item name="random" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Keystickers-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="keystickers" />
+    <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="Repository.Attach.Sources" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="251" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="319" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547155922973" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2632184" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.satoshiware.keystickers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="FileCheckSumSHA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.satoshiware.keystickers.FileCheckSumSHA" />
+      <module name="Keystickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.satoshiware.keystickers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.satoshiware.keystickers.Main" />
+      <module name="Keystickers" />
+      <option name="PROGRAM_PARAMETERS" value="IntelliJ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.satoshiware.keystickers.random.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Stack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.satoshiware.keystickers.Stack" />
+      <module name="Keystickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.satoshiware.keystickers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRandom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.satoshiware.testrnd.TestRandom" />
+      <module name="Keystickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.satoshiware.keystickers.random.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.satoshiware.keystickers.temp" />
+      <module name="Keystickers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.satoshiware.keystickers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.FileCheckSumSHA" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Stack" />
+      <item itemvalue="Application.TestRandom" />
+      <item itemvalue="Application.temp" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.temp" />
+        <item itemvalue="Application.FileCheckSumSHA" />
+        <item itemvalue="Application.Stack" />
+        <item itemvalue="Application.TestRandom" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_LAMBDA,SHOW_ANONYMOUS,SHOW_INHERITED,SHOW_PROPERTIES,SHOW_INTERFACES" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="acb269bc-c803-441d-84c8-69e85a243a66" name="Default Changelist" comment="" />
+      <created>1533257729207</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533257729207</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47722343" visible="true" weight="0.13859275" />
+      <window_info id="Structure" order="1" sideWeight="0.52277654" side_tool="true" weight="0.12260128" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5075922" side_tool="true" weight="0.17377399" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.54013014" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3943662" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.18438178" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286334" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" id="Maven" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47722343" visible="true" weight="0.12633263" />
+      <window_info id="Structure" order="1" sideWeight="0.52277654" side_tool="true" weight="0.12260128" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5075922" side_tool="true" weight="0.17377399" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.54013014" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19414316" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.18655097" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286334" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32995737" />
+    </layout-to-restore>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((sampleNumber * digest.length) % SEEDSIZE" />
+        <watch expression="seed" />
+        <watch expression="e.getX()" />
+        <watch expression="(FRAMESIZE * e.getY())" />
+        <watch expression="System.nanoTime()" />
+        <watch expression="System.nanoTime() - timeStamp" />
+        <watch expression="System.nanoTime() - timeStamp - SAMPLETIME" />
+        <watch expression="(FRAMESIZE * FRAMESIZE * (System.nanoTime() - timeStamp - SAMPLETIME))" />
+        <watch expression="checkOutline.isSelected()" />
+        <watch expression="checkGrayScaleTest.isSelected()" />
+        <watch expression="Float.parseFloat(txtBGGrayscale.getText())" />
+        <watch expression="Float.parseFloat(txtFGGrayscale.getText())" />
+        <watch expression="Integer.parseInt(txtTotalPages.getText())" />
+        <watch expression="PageFormat.LANDSCAPE" />
+        <watch expression="(Float.parseFloat(txtBGGrayscale.getText()) &gt; 100 ||&#10;                        Float.parseFloat(txtBGGrayscale.getText()) &lt; 0 ||&#10;                        Float.parseFloat(txtFGGrayscale.getText()) &gt; 100 ||&#10;                        Float.parseFloat(txtFGGrayscale.getText()) &lt; 0 ||&#10;                        Double.parseDouble(txtRotation.getText()) &lt; -30 ||&#10;                        Double.parseDouble(txtRotation.getText()) &gt; 30 ||&#10;                        Double.parseDouble(txtVerticalOffset.getText()) &lt; -1 ||&#10;                        Double.parseDouble(txtVerticalOffset.getText()) &gt; 1 ||&#10;                        Double.parseDouble(txtHorizontalOffset.getText()) &lt; -1 ||&#10;                        Double.parseDouble(txtHorizontalOffset.getText()) &gt; 1 ||&#10;                        Integer.parseInt(txtTotalPages.getText()) &gt; 500 ||&#10;                        Integer.parseInt(txtTotalPages.getText()) != 0)" />
+        <watch expression="lblQCNumber.getText().substring(12, 17)" />
+        <watch expression="lblQCNumber.getText().substring(12, 17).equals(key.getQCP2PKH())" />
+        <watch expression="lblQCNumber.getText().substring(12, 17).equals(key.getQCP2WPKH(0))" />
+        <watch expression="stack" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>bytes[3]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>rndSrc.getName().toLowerCase().substring(rndSrc.getName().length() - 3)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>bytes[1]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>m.getWidth()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>m.getWidth(</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.xml.crypto/org/jcp/xml/dsig/internal/dom/XMLDSigRI.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/SegwitAddress.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/AddressFormatExceptionn.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/bitcoinj-core-0.14.7-sources.jar!/org/bitcoinj/core/VersionedChecksummedBytes.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/TrueRNGV3.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/TRNGN1.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/OneRNG.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/NeuG.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/InfiniteNoise.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/BitBabbler.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomTrueRNGV3.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/print/Printable.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/BlankArea.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/event/MouseMotionListener.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/core-3.3.3-sources.jar!/com/google/zxing/qrcode/QRCodeWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/bitcoinj-core-0.14.7-sources.jar!/org/bitcoinj/params/MainNetParams.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/bitcoinj-core-0.14.7-sources.jar!/org/bitcoinj/core/NetworkParameters.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/bitcoinj-core-0.14.7-sources.jar!/org/bitcoinj/core/Utils.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/bitcoinj-core-0.14.7-sources.jar!/org/bitcoinj/core/ECKey.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/RandomInterfaceee.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/QCVerification.java" />
+    <entry file="file://$PROJECT_DIR$/Keystickers.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/jitsi/bccontrib/engines/ThreefishCipher.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/MouseEntropy.form" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="3662" column="26" selection-start-line="3662" selection-start-column="26" selection-end-line="3662" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/HelloWorldPrinter.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/javax/usb/properties.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpNames.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpDeviceTree.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/AraneusAleaII.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/hw/ChaosKey.java" />
+    <entry file="file://$PROJECT_DIR$/src/javax.usb.properties" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/DumpDevices.java" />
+    <entry file="file://$PROJECT_DIR$/src/META-INF-old/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Stack.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/QCverify.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="1962" selection-start-line="1962" selection-end-line="1962" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/QCApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#runQCApp#0;class#QCApp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/ExtRNG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#14184#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#ExtRNG#0;class#ExtRNG#0" />
+            <element signature="method#open#0;class#ExtRNG#0" />
+            <element signature="method#baudrate#0;class#ExtRNG#0" />
+            <element signature="method#fillStack#0;class#ExtRNG#0" />
+            <element signature="method#close#0;class#ExtRNG#0" />
+            <element signature="method#call#0;class#ExtRNG#0" />
+            <element signature="method#getByte#0;class#ExtRNG#0" />
+            <element signature="method#getInfo#0;class#ExtRNG#0" />
+            <element signature="class#Stack#0;class#ExtRNG#0" />
+            <element signature="method#Stack#0;class#Stack#0;class#ExtRNG#0" />
+            <element signature="method#pop#0;class#Stack#0;class#ExtRNG#0" />
+            <element signature="method#popBytes#0;class#Stack#0;class#ExtRNG#0" />
+            <element signature="method#push#0;class#Stack#0;class#ExtRNG#0" />
+            <element signature="method#pushBytes#0;class#Stack#0;class#ExtRNG#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/KSGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBytes#0;class#KSGenerator#0" />
+            <element signature="method#getInfo#0;class#KSGenerator#0" />
+            <element signature="method#runQC#0;class#KSGenerator#0" />
+            <element signature="class#JFrameGraphics#0;class#KSGenerator#0" />
+            <element signature="class#RandomInterface#0;class#KSGenerator#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/SecureRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#1838#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#SecureRandom#0;class#SecureRandom#0" />
+            <element signature="method#getByte#0;class#SecureRandom#0" />
+            <element signature="method#getInfo#0;class#SecureRandom#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Bech32.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="64" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="class#Bech32Data#0;class#Bech32#0" />
+            <element signature="method#polymod#0;class#Bech32#0" />
+            <element signature="method#expandHrp#0;class#Bech32#0" />
+            <element signature="method#verifyChecksum#0;class#Bech32#0" />
+            <element signature="method#createChecksum#0;class#Bech32#0" />
+            <element signature="method#encode#1;class#Bech32#0" />
+            <element signature="method#decode#0;class#Bech32#0" />
+            <element signature="method#convertBits#0;class#Bech32#0" />
+            <element signature="method#encodeToOpN#0;class#Bech32#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/random/FortunaGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="79" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#2034#0" expanded="true" />
+            <element signature="method#FortunaGenerator#0;class#FortunaGenerator#0" />
+            <element signature="method#getByte#0;class#FortunaGenerator#0" />
+            <element signature="method#getInfo#0;class#FortunaGenerator#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/MouseEntropy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MouseEntropy#0;class#MouseEntropy#0" />
+            <element signature="method#run#0;class#MouseEntropy#0" />
+            <element signature="method#mouseMoved#0;class#MouseEntropy#0" />
+            <element signature="method#mouseDragged#0;class#MouseEntropy#0" />
+            <element signature="class#MousePanel#0;class#MouseEntropy#0" />
+            <element signature="method#updateTextArea#0;class#MouseEntropy#0" />
+            <element signature="method#bytesToHex#0;class#MouseEntropy#0" />
+            <element signature="method#updateSeed#0;class#MouseEntropy#0" />
+            <element signature="class#MouseEntropyCloseEvent#0;class#MouseEntropy#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/KSSheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#25055#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#KSSheet#0;class#KSSheet#0" />
+            <element signature="method#print#0;class#KSSheet#0" />
+            <element signature="method#setPublicKey#0;class#KSSheet#0" />
+            <element signature="method#setPrivateKey#0;class#KSSheet#0" />
+            <element signature="method#setQCNumber#0;class#KSSheet#0" />
+            <element signature="method#getPrivateKey#0;class#KSSheet#0" />
+            <element signature="method#getPublicKey#0;class#KSSheet#0" />
+            <element signature="method#getQCNumber#0;class#KSSheet#0" />
+            <element signature="method#clone#0;class#KSSheet#0" />
+            <element signature="method#drawFrame#0;class#KSSheet#0" />
+            <element signature="method#drawKSOutline#0;class#KSSheet#0" />
+            <element signature="method#drawQR#0;class#KSSheet#0" />
+            <element signature="method#drawKSString#0;class#KSSheet#0" />
+            <element signature="method#getAscent#0;class#KSSheet#0" />
+            <element signature="method#getDescent#0;class#KSSheet#0" />
+            <element signature="method#truncateText#0;class#KSSheet#0" />
+            <element signature="method#getGreyscale#0;class#KSSheet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/KSKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#6744#0" expanded="true" />
+            <element signature="method#KSKey#0;class#KSKey#0" />
+            <element signature="method#KSKey#1;class#KSKey#0" />
+            <element signature="method#getP2PKH#0;class#KSKey#0" />
+            <element signature="method#getP2WPKH#0;class#KSKey#0" />
+            <element signature="method#getWIF#0;class#KSKey#0" />
+            <element signature="method#getQCnumber#0;class#KSKey#0" />
+            <element signature="method#keyCheck#0;class#KSKey#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/temp.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/JarChecksums.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3193#3343#0" />
+            <element signature="method#jarFiles#0;class#JarChecksums#0" />
+            <element signature="method#checksum#0;class#JarChecksums#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1989">
+          <caret line="257" column="63" selection-start-line="257" selection-start-column="63" selection-end-line="257" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#actionPerformed#0;class#3641:4468" />
+            <element signature="class#4521:5204" />
+            <element signature="class#5250:5485" />
+            <element signature="class#5535:6693" />
+            <element signature="class#6741:6897" />
+            <element signature="class#6940:10335" />
+            <element signature="class#10380:10535" />
+            <element signature="e#10785#10840#1" />
+            <element signature="method#print#0;class#Main#0" />
+            <element signature="class#writeQCFile#0;class#Main#0" />
+            <element signature="method#writeQCFile#0;class#writeQCFile#0;class#Main#0" />
+            <element signature="method#write#0;class#writeQCFile#0;class#Main#0" />
+            <element signature="method#writeGenInfo#0;class#writeQCFile#0;class#Main#0" />
+            <element signature="method#close#0;class#writeQCFile#0;class#Main#0" />
+            <element signature="class#ComboItem#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/satoshiware/keystickers/Main.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="artifact" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>Keystickers:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Keystickers</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>org.slf4j:slf4j-jdk14:1.7.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2632184" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
