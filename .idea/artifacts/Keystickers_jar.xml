@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="Keystickers:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="root">
+      <element id="archive" name="keystickers-0.1.0.jar">
+        <element id="module-output" name="Keystickers" />
+      </element>
+      <element id="library" level="project" name="org.jitsi:bccontrib:1.0" />
+      <element id="library" level="project" name="org.slf4j:slf4j-jdk14:1.7.12" />
+      <element id="library" level="project" name="org.bitcoinj:bitcoinj-core:0.14.7" />
+      <element id="library" level="project" name="com.google.zxing:core:3.3.3" />
+    </root>
+  </artifact>
+</component>

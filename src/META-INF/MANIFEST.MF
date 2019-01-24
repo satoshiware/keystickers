@@ -1,0 +1,17 @@
+Manifest-Version: 0.1.0_build_01
+Main-Class: org.satoshiware.keystickers.Main
+Class-Path: bccontrib-1.0.jar bcprov-jdk15on-1.48.jar slf4j-jdk14-1.7.
+ 12.jar slf4j-api-1.7.12.jar bitcoinj-core-0.14.7.jar core-1.51.0.0.ja
+ r protobuf-java-2.6.1.jar guava-18.0.jar jsr305-2.0.1.jar jcip-annota
+ tions-1.0.jar scrypt-1.4.0.jar orchid-1.2.1.jar okhttp-2.7.2.jar okio
+ -1.6.0.jar slf4j-api-1.7.20.jar core-3.3.3.jar
+Implementation-Title: org.satoshiware.keystickers
+Implementation-Version: build_01
+Specification-Vendor: Satoshiware
+Name: org/satoshiware/keystickers
+Specification-Title: Keystickers Printing Applicaition
+Content-Type: Application
+Created-By: Satoshiware
+Specification-Version: 0.1.0
+Implementation-Vendor: Satoshiware
+
