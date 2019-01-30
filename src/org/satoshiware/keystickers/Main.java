@@ -245,21 +245,14 @@ public class Main extends JFrame {
         String filepath = System.getProperty("user.dir");
         boolean skip = false;
         if(args.length == 1) {
-            if(args[0].equals("IntelliJ")) {
-                filepath += "\\out\\artifacts"; // The filepath needs altered when run from within the intelliJ IDE
-
-                //skip = true; // <----- Comment/Uncomment this line
-
-                if(skip) System.out.println("\nComment \"skip = true\" (Main.java line ~251) to run checksum verifications");
-                else System.out.println("\nUncomment \"skip = true\" (Main.java line ~251) to skip checksum verifications");
-            }else if(args[0].equals("-f")) { // Skips the checksum verification if "-f" argument is provided
+            if(args[0].equals("-f")) { // Skips the checksum verification if "-f" argument is provided
                 skip = true;
             }else {
-                System.out.println("Error! Invalid argument!");
+                System.out.println("Error! Invalid program argument!");
                 filepath = null;
             }
         }else if(args.length > 1) {
-            System.out.println("Error! Invalid arguments!");
+            System.out.println("Error! Invalid program arguments!");
             filepath = null;
         }else {
             System.out.println("\nUse the -f flag to skip the checksum verifications");

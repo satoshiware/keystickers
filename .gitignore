@@ -1,6 +1,3 @@
-# Lib Files
-lib/
-
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -46,6 +43,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
+lib/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
