@@ -245,7 +245,7 @@ public class Main extends JFrame {
         String filepath = System.getProperty("user.dir");
         boolean skip = false;
         if(args.length == 0) {
-            System.out.println("Program Argument required:");
+            System.out.println("Program Argument Required:");
             System.out.println("    -v  Verify checksums of external jar files");
             System.out.println("    -s  Skip checksum verification");
             System.out.println("    -i  Use this flag instead of \"-v\" when running/debugging within IntelliJ");
