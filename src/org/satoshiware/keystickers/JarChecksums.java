@@ -41,7 +41,8 @@ public class JarChecksums {
         System.out.println("\nVerifying the checksum (SHA-256) of each external library in the directory \"" + filepath + "\"\n");
         try {
             if ((new File(filepath)).list().length <= FILESCHECKED || (new File(filepath)).list().length > FILESCHECKED + 1) { // Increment FILESCHECKED by 1 to include the Keysticker jar file
-                System.out.println("ERROR! The directory being verified must contain exactly " + Integer.toString(FILESCHECKED + 1) + " files! There are " + Integer.toString(FILESCHECKED + 1) + " jar files for this application.");
+                System.out.println("ERROR! Make sure to run Keystickers from the directory containing the jar files.");
+                System.out.println("The directory being verified must only contain the " + Integer.toString(FILESCHECKED + 1) + " jar files required for this application.");
                 return false;
             }
         } catch (NullPointerException e) {

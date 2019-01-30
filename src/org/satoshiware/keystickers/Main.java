@@ -244,18 +244,25 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         String filepath = System.getProperty("user.dir");
         boolean skip = false;
-        if(args.length == 1) {
-            if(args[0].equals("-f")) { // Skips the checksum verification if "-f" argument is provided
+        if(args.length == 0) {
+            System.out.println("Program Argument required:");
+            System.out.println("    -v  Verify checksums of external jar files");
+            System.out.println("    -s  Skip checksum verification");
+            System.out.println("    -i  Use this flag instead of \"-v\" when running/debugging within IntelliJ");
+            filepath = null;
+        }else if(args.length == 1) {
+            if(args[0].equals("-v")) {
+            }else if(args[0].equals("-s")) {
                 skip = true;
+            }else if(args[0].equals("-i")) { // Filepath needs altered when running within IntelliJ
+                filepath += System.getProperty("file.separator") + "out" + System.getProperty("file.separator") + "artifacts";
             }else {
                 System.out.println("Error! Invalid program argument!");
                 filepath = null;
             }
-        }else if(args.length > 1) {
-            System.out.println("Error! Invalid program arguments!");
-            filepath = null;
         }else {
-            System.out.println("\nUse the -f flag to skip the checksum verifications");
+            System.out.println("Error! Too many program arguments!");
+            filepath = null;
         }
 
         if(skip || JarChecksums.run(filepath)) {
