@@ -11,5 +11,6 @@
     <orderEntry type="library" name="org.bitcoinj:bitcoinj-core:0.14.7" level="project" />
     <orderEntry type="library" name="org.slf4j:slf4j-jdk14:1.7.12" level="project" />
     <orderEntry type="library" name="org.jitsi:bccontrib:1.0" level="project" />
+    <orderEntry type="library" name="com.intellij:forms_rt:7.0.3" level="project" />
   </component>
 </module>
