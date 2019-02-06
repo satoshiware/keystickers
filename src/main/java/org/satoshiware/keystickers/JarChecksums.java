@@ -101,12 +101,12 @@ public class JarChecksums {
             case 13:    file = "bccontrib-1.0.jar";         spacing += 3;   checksum = "cd5514068306262ce35c25122d75ddcfc406a672a0b41a8ef267201d94784cc3";  description = "org.jitsi.bccontrib 1.0 (Fortuna CSPRNG)"; break;
             case 14:    file = "bcprov-jdk15on-1.48.jar";   spacing -= 3;   checksum = "804b7e2e3b9ac771dfd3b43de16666ac6008f8600f48f28ddc94e39a114e2288";  description = "    -> Fortuna support file (1/1)"; break;
             case 15:    file = "slf4j-jdk14-1.7.12.jar";    spacing -= 2;   checksum = "a13362d9865740511ab35e4181e6821c4876d92fa770bfcc37e96086d924f75c";  description = "Simple Logging Facade for Java (SLF4J.org) JDK"; break;
-            case 16:    file = "forms_rt-7.0.3.jar";        spacing -= 2;   checksum = "51d100f7f19e85bce8fd8fda551e433188174994f470d6e9f51c7f7b2227d9e3";  description = ""; break;
-            case 17:    file = "asm-commons-3.0.jar";       spacing -= 2;   checksum = "32b516ca5738b87077afac83d08bae7e3f3cea4ce6ff6d7a18506b38c3729640";  description = ""; break;
-            case 18:    file = "asm-tree-3.0.jar";          spacing -= 2;   checksum = "ad82cad09bb2f7752d4ddb8ebb2aaf893ecc4a801bcbe813c75027830f496255";  description = ""; break;
-            case 19:    file = "asm-3.0.jar";               spacing -= 2;   checksum = "bfcb35900ec1d5a1346fb0dc91dd9d772cf93e3165cb8701aec3ed277b5a53ba";  description = ""; break;
-            case 20:    file = "forms-1.1-preview.jar";     spacing -= 2;   checksum = "26b0fc745ea051b57462be22a150c7600dbac6716b24cc60a5ecc0e8085c41a0";  description = ""; break;
-            case 21:    file = "jdom-1.0.jar";              spacing -= 2;   checksum = "3b23bc3979aec14a952a12aafc483010dc57579775f2ffcacef5256a90eeda02";  description = ""; break;
+            case 16:    file = "forms_rt-7.0.3.jar";        spacing -= 2;   checksum = "51d100f7f19e85bce8fd8fda551e433188174994f470d6e9f51c7f7b2227d9e3";  description = "Jetbrains UiDesigner 7.0.3"; break;
+            case 17:    file = "asm-commons-3.0.jar";       spacing -= 2;   checksum = "32b516ca5738b87077afac83d08bae7e3f3cea4ce6ff6d7a18506b38c3729640";  description = "    -> UiDesigner support file (1/5)"; break;
+            case 18:    file = "asm-tree-3.0.jar";          spacing -= 2;   checksum = "ad82cad09bb2f7752d4ddb8ebb2aaf893ecc4a801bcbe813c75027830f496255";  description = "    -> UiDesigner support file (2/5)"; break;
+            case 19:    file = "asm-3.0.jar";               spacing -= 2;   checksum = "bfcb35900ec1d5a1346fb0dc91dd9d772cf93e3165cb8701aec3ed277b5a53ba";  description = "    -> UiDesigner support file (3/5)"; break;
+            case 20:    file = "forms-1.1-preview.jar";     spacing -= 2;   checksum = "26b0fc745ea051b57462be22a150c7600dbac6716b24cc60a5ecc0e8085c41a0";  description = "    -> UiDesigner support file (4/5)"; break;
+            case 21:    file = "jdom-1.0.jar";              spacing -= 2;   checksum = "3b23bc3979aec14a952a12aafc483010dc57579775f2ffcacef5256a90eeda02";  description = "    -> UiDesigner support file (5/5)"; break;
             default:    file = null;                        spacing = -1;   checksum = null;                                                                description = null; break;
         }
 
