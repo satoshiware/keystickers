@@ -242,20 +242,17 @@ public class Main extends JFrame {
     }
 
     public static void main(String[] args) {
-        String filepath = System.getProperty("user.dir");
+        String filepath = System.getProperty("user.dir") + System.getProperty("file.separator") + "lib";
         boolean skip = false;
         if(args.length == 0) {
             System.out.println("Program Argument Required:");
             System.out.println("    -v  Verify checksums of external jar files");
             System.out.println("    -s  Skip checksum verification");
-            System.out.println("    -i  Use this flag instead of \"-v\" when running/debugging within IntelliJ");
             filepath = null;
         }else if(args.length == 1) {
             if(args[0].equals("-v")) {
             }else if(args[0].equals("-s")) {
                 skip = true;
-            }else if(args[0].equals("-i")) { // Filepath needs altered when running within IntelliJ
-                filepath += System.getProperty("file.separator") + "out" + System.getProperty("file.separator") + "artifacts";
             }else {
                 System.out.println("Error! Invalid program argument!");
                 filepath = null;
