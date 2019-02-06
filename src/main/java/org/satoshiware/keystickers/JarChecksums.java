@@ -33,7 +33,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class JarChecksums {
-    public static int FILESCHECKED = 21; // Doesn't include the Keysticker jar file
+    public static int FILESCHECKED = 21;
 
     public static boolean run(String filepath) {
         if(filepath == null) return false;
