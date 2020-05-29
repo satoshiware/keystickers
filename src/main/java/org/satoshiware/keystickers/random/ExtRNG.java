@@ -1,7 +1,7 @@
 /*
- *      This class creates an input stream to an external RNG or ".dat" file
- *      containing random numbers. Implements Callable to create threads and
- *      RandomInterface for KSGenerator compatibility.
+ *      This class creates an input stream from the Raspberry Pi's HWRNG.
+ *      Implements Callable to create threads and RandomInterface for
+ *      KSGenerator compatibility.
  *
  *      This program is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -16,14 +16,19 @@
  *      You should have received a copy of the GNU General Public License
  *      along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+<<<<<<< Updated upstream:src/main/java/org/satoshiware/keystickers/random/ExtRNG.java
 
+=======
+>>>>>>> Stashed changes:src/main/java/org/satoshiware/keystickers/random/RPiHWRNG.java
 package org.satoshiware.keystickers.random;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.EmptyStackException;
 
+<<<<<<< Updated upstream:src/main/java/org/satoshiware/keystickers/random/ExtRNG.java
 public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
     public static int STREAMREADSIZE = 1024; // How many bytes to read from stream
     public static int NUMFOLDS = 4; // Number of stream reads XOR'ed together
@@ -35,17 +40,26 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
     public static int MINIMUMBAUDRATE = 3500; // Minimum acceptable baud rate (bps)
     public static int MEASURETIME = 5000; // Sampling time (for measuring baud rate).
     public static int STACKTIMEOUT = 60000; // Maximum amount of time loading the stack with random numbers.
+=======
+public class RPiHWRNG implements Callable<Object>, KSGenerator.RandomInterface {
+    public static final int STREAMREADSIZE = 1024; // How many bytes to read from stream
+    public static final int NUMFOLDS = 4; // Number of stream reads XOR'ed together.
+    public static final int STACKSIZE = 131072; // (128K) Number of random bytes folded and stored in this instance.
+    public static final TimeUnit TIMEUNIT = TimeUnit.MILLISECONDS; // Interpretation of time parameters.
+    public static final int OPENTIMEOUT = 2500; // Maximum amount of time to open a stream.
+    public static final int CLOSETIMEOUT = 8000; // Maximum amount of time to close a stream.
+    public static final int STACKTIMEOUT = 60000; // Maximum amount of time loading the stack with random numbers.
+    public static final String rndSrc = "/dev/hwrng"; // Location or source of the Raspberry Pi's HWRNG
+>>>>>>> Stashed changes:src/main/java/org/satoshiware/keystickers/random/RPiHWRNG.java
 
     private ExecutorService executor; // Used create threads for opening, closing, and reading from external sources
     private DataInputStream in; // The input stream to an external source (RNG or ".dat" file containing random numbers)
 
-    private Stack stack; // Holds the folded (XOR'ed) random data read from the source
-    private boolean isFile; // Set true if the selected source is a ".dat" file
-    private String baud; // Measured baud rate
+    private final Stack stack; // Holds the folded (XOR'ed) random data read from the source
 
-    private File rndSrc; // The source of the stream.
     private String action; // What action is taken with call(): OPEN, FILLSTACK, CLOSE.
 
+<<<<<<< Updated upstream:src/main/java/org/satoshiware/keystickers/random/ExtRNG.java
     public ExtRNG(File rndSrc){
         this.rndSrc = rndSrc;
 
@@ -56,12 +70,16 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
             isFile = false;
         }
         baud = "NA";
+=======
+    public RPiHWRNG(){
+        stack = new Stack(STACKSIZE);
+>>>>>>> Stashed changes:src/main/java/org/satoshiware/keystickers/random/RPiHWRNG.java
     }
 
     // Opens the source; uses the call() routine to make a new thread
     public boolean open() {
         if(in != null) {
-            System.out.println("This " + (isFile ? "file" : "stream") + " is already opened or had initially failed to open.");
+            System.out.println("The \"" + rndSrc + "\"" + " is already opened or had initially failed to open.");
             return false;
         }
         if(executor != null) executor.shutdown(); // Shutdown any existing ExecutorService instance before creating a new one.
@@ -70,7 +88,7 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
         action = "OPEN";
         Future<Object> future = executor.submit(this);
 
-        System.out.print("Opening \"" + rndSrc.getPath() + (isFile ? "\" File." : "\" Stream."));
+        System.out.println("Opening the \"" + rndSrc + "\" stream on the Raspberry Pi.");
 
         long startTime = System.nanoTime();
         long progressTime = System.nanoTime();
@@ -85,17 +103,23 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
             try {
                 future.get();
             }catch (ExecutionException | InterruptedException e) {
-                System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc.getPath() + "\" was NOT successfully opened.");
+                System.out.print("The \"" + rndSrc + "\" stream was NOT successfully opened: ");
+                if(e.getMessage().contains("Permission"))
+                    System.out.println("Permission Denied!");
+                else
+                    System.out.println("You are not running on a Raspberry Pi with HWRNG support!");
+
                 in = null;
                 return false;
             }
             System.out.println(" Success!");
             return true;
         }else {
-            System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc.getPath() + "\" could NOT be opened in a reasonable amount of time.");
+            System.out.println("The \"" + rndSrc + "\" could NOT be opened in a reasonable amount of time.");
             in = null;
             return false;
         }
+<<<<<<< Updated upstream:src/main/java/org/satoshiware/keystickers/random/ExtRNG.java
     }
 
     // Measures the baud rate and returns true if successful
@@ -154,19 +178,21 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
         } catch (IOException e) {
             return false;
         }
+=======
+>>>>>>> Stashed changes:src/main/java/org/satoshiware/keystickers/random/RPiHWRNG.java
     }
 
     // Reads from the source until the stack is full; uses the call() routine to make a new thread
     public boolean fillStack() {
         if(in == null) {
-            System.out.println("There is no available " + (isFile ? "file" : "stream") + " to read.");
+            System.out.println("The \"" + rndSrc + "\" stream is not available to read.");
             return false;
         }
 
         action = "FILLSTACK";
         Future<Object> future = executor.submit(this);
 
-        System.out.print("Reading " + Integer.toString(STACKSIZE - stack.remaining()) + " bytes from \"" + rndSrc + (isFile ? "\" File." : "\" Stream."));
+        System.out.print("Reading " + (STACKSIZE - stack.remaining()) + " bytes from the \"" + rndSrc + "\" stream.");
 
         long startTime = System.nanoTime();
         long progressTime = System.nanoTime();
@@ -181,13 +207,13 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
             try {
                 future.get();
             }catch (ExecutionException | InterruptedException e) {
-                System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc.getPath() + "\" was NOT successfully read: " + e.getMessage());
+                System.out.println("The \"" + rndSrc + "\" stream was NOT successfully read: " + e.getMessage());
                 return false;
             }
             System.out.println(" Success!");
             return true;
         }else {
-            System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc.getPath() + "\" could NOT be read in a reasonable amount of time.");
+            System.out.println("The \"" + rndSrc + "\" stream could NOT be read in a reasonable amount of time.");
             return false;
         }
     }
@@ -195,14 +221,14 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
     // Closes the source; uses the call() routine to make a new thread
     public void close() {
         if(in == null) {
-            System.out.println("There is no available \" + (isFile ? \"file\" : \"stream\") + \" to close.");
+            System.out.println("The \"" + rndSrc + "\" stream is not available to close.");
             return;
         }
 
         action = "CLOSE";
         Future<Object> future = executor.submit(this);
 
-        System.out.print("Closing \"" + rndSrc + (isFile ? "\" File." : "\" Stream."));
+        System.out.print("Closing the \"" + rndSrc + "\" Stream.");
 
         long startTime = System.nanoTime();
         long progressTime = System.nanoTime();
@@ -217,56 +243,59 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
             try {
                 future.get();
             }catch (ExecutionException | InterruptedException e) {
-                System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc + "\" was NOT successfully closed.");
+                System.out.println("The \"" + rndSrc + "\" stream was NOT successfully closed.");
                 in = null;
                 executor.shutdown();
                 return;
             }
             System.out.println(" Success!");
-            in = null;
-            executor.shutdown();
         }else {
-            System.out.println((isFile ? "\nFile \"" : "\nStream \"") + rndSrc + "\" could NOT be closed in a reasonable amount of time.");
-            in = null;
-            executor.shutdown();
+            System.out.println("the \"" + rndSrc + "\" stream could NOT be closed in a reasonable amount of time.");
         }
+        in = null;
+        executor.shutdown();
     }
 
     // Supports the open(), fillStack(), and close() methods
     public Object call() throws IOException {
-        if(action.equals("OPEN")) {
-            action = "";
-            in = new DataInputStream(new BufferedInputStream(new FileInputStream(rndSrc)));
-        }else if(action.equals("FILLSTACK")) {
-            action = "";
-            while(!stack.full()) {
-                byte[] foldedBytes = null;
-                for(int i = 0; i < NUMFOLDS; i++) {
-                    byte[] bytes = new byte[STREAMREADSIZE];
-                    int offset = 0;
-                    int readCount = 0;
-                    while ((readCount != -1) && (offset < STREAMREADSIZE)) {
-                        readCount = in.read(bytes, offset, STREAMREADSIZE - offset);
-                        offset += readCount;
-                    }
-                    if (readCount == -1) throw new IOException("EOF has been reached! Data stream is inconsistent or .dat file is too small (" + Integer.toString(NUMFOLDS * STACKSIZE) + " bytes are read at a time).");
+        switch (action) {
+            case "OPEN":
+                action = "";
+                in = new DataInputStream(new BufferedInputStream(new FileInputStream(rndSrc)));
+                break;
+            case "FILLSTACK":
+                action = "";
+                while (!stack.full()) {
+                    byte[] foldedBytes = null;
+                    for (int i = 0; i < NUMFOLDS; i++) {
+                        byte[] bytes = new byte[STREAMREADSIZE];
+                        int offset = 0;
+                        int readCount = 0;
+                        while ((readCount != -1) && (offset < STREAMREADSIZE)) {
+                            readCount = in.read(bytes, offset, STREAMREADSIZE - offset);
+                            offset += readCount;
+                        }
+                        if (readCount == -1)
+                            throw new IOException("IOException: EOF has been reached! The \"" + rndSrc + "\" stream is inconsistent or too slow.");
 
-                    if(foldedBytes == null) {
-                        foldedBytes = bytes;
-                    } else {
-                        for(int j = 0; j < STREAMREADSIZE; j++) {
-                            foldedBytes[j] ^= bytes[j];
+                        if (foldedBytes == null) {
+                            foldedBytes = bytes;
+                        } else {
+                            for (int j = 0; j < STREAMREADSIZE; j++) {
+                                foldedBytes[j] ^= bytes[j];
+                            }
                         }
                     }
-                }
 
-                stack.lock.lock();
-                stack.pushBytes(foldedBytes);
-                stack.lock.unlock();
-            }
-        }else if(action.equals("CLOSE")) {
-            action = "";
-            in.close();
+                    stack.lock.lock();
+                    stack.pushBytes(foldedBytes);
+                    stack.lock.unlock();
+                }
+                break;
+            case "CLOSE":
+                action = "";
+                in.close();
+                break;
         }
 
         return new Object();
@@ -288,19 +317,12 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
         return b;
     }
     public String getName() {
-        return rndSrc.getName();
-    }
-    public String getInfo() {
-        String s = "External RNG " + (isFile ? "File" : "Stream") + " Path: " + rndSrc.getPath() + "\n";
-        s += "Baud Rate: " + baud + "\n";
-        s += "Type: " + (isFile ? "File\n" : "Stream\n");
-        s += "Folds: " + Integer.toString(NUMFOLDS);
-        return s;
+        return rndSrc;
     }
 
     // Stack class used to hold the random data read and folded (XOR'ed) from the external RNG source or .dat file
-    private class Stack {
-        private byte[] stackArray;
+    private static class Stack {
+        private final byte[] stackArray;
         private int position;
 
         public ReentrantLock lock;
@@ -319,12 +341,6 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
             return stackArray[position];
         }
 
-        public void popBytes(byte[] bytes) {
-            for(int i = 0; i < bytes.length; i++) {
-                bytes[i] = pop();
-            }
-        }
-
         public void push(byte b) {
             if(position != stackArray.length) {
                 stackArray[position] = b;
@@ -333,9 +349,8 @@ public class ExtRNG implements Callable<Object>, KSGenerator.RandomInterface {
         }
 
         public void pushBytes(byte[] bytes) {
-            for(int i = 0; i < bytes.length; i++) {
-                push(bytes[i]);
-            }
+            for (byte aByte : bytes)
+                push(aByte);
         }
 
         public int remaining() {

@@ -18,10 +18,9 @@
 package org.satoshiware.keystickers.random;
 
 import java.nio.ByteBuffer;
-import java.security.Provider;
 
 public class SecureRandom extends java.security.SecureRandom implements KSGenerator.RandomInterface {
-    private static int BUFFERSIZE = 4096;
+    private static final int BUFFERSIZE = 4096;
 
     private ByteBuffer buffer;
 
@@ -41,14 +40,6 @@ public class SecureRandom extends java.security.SecureRandom implements KSGenera
         }
 
         return buffer.get();
-    }
-
-    public String getInfo() {
-        Provider p = this.getProvider();
-        String s = "Provider: " + p.getName() + "\n";
-        s += "Version: " + Double.toString(p.getVersion()) + "\n";
-        s += "Algorithm: " + this.getAlgorithm();
-        return s;
     }
 
     public String getName() {

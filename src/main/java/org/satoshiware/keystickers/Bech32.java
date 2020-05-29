@@ -41,10 +41,10 @@ import java.util.Locale;
 
 public class Bech32 {
     /** The Bech32 character set for encoding. */
-    private static final String CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l";
+    public static final String CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l";
 
     /** The Bech32 character set for decoding. */
-    private static final byte[] CHARSET_REV = {
+    public static final byte[] CHARSET_REV = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -83,7 +83,7 @@ public class Bech32 {
     /** Expand a HRP for use in checksum computation. */
     private static byte[] expandHrp(final String hrp) {
         int hrpLength = hrp.length();
-        byte ret[] = new byte[hrpLength * 2 + 1];
+        byte[] ret = new byte[hrpLength * 2 + 1];
         for (int i = 0; i < hrpLength; ++i) {
             int c = hrp.charAt(i) & 0x7f; // Limit to standard 7-bit ASCII
             ret[i] = (byte) ((c >>> 5) & 0x07);
@@ -94,7 +94,7 @@ public class Bech32 {
     }
 
     /** Verify a checksum. */
-    private static boolean verifyChecksum(final String hrp, final byte[] values) {
+    public static boolean verifyChecksum(final String hrp, final byte[] values) {
         byte[] hrpExpanded = expandHrp(hrp);
         byte[] combined = new byte[hrpExpanded.length + values.length];
         System.arraycopy(hrpExpanded, 0, combined, 0, hrpExpanded.length);

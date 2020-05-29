@@ -2,18 +2,19 @@
 	<modelVersion>4.0.0</modelVersion>
     <groupId>org.satoshiware</groupId>
     <artifactId>keystickers</artifactId>
-    <version>0.1.1</version>
+    <version>1.0.0-SNAPSHOT</version>
      
     <properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 	<dependencies>
-	    <dependency>
+		<dependency>
 			<groupId>com.intellij</groupId>
 			<artifactId>forms_rt</artifactId>
-			<version>7.0.3</version>
+		<version>7.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bitcoinj</groupId>
@@ -35,28 +36,20 @@
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.7.12</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+			<version>19.0.0</version>
+        </dependency>
+		<dependency>
+			<groupId>wf.bitcoin</groupId>
+			<artifactId>bitcoin-rpc-client</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+    </dependencies>
 	
 	<build>
 		<plugins>
-			<plugin>
-				<!-- Required for GUI Build (IntelliJ) -->
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>ideauidesigner-maven-plugin</artifactId>
-				<version>1.0-beta-1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>javac2</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<fork>true</fork>
-					<debug>true</debug>
-					<failOnError>true</failOnError>
-				</configuration>
-			</plugin>
 			<plugin>
 				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>

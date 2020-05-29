@@ -16,11 +16,14 @@
  */
 package org.satoshiware.keystickers;
 
+import org.satoshiware.satoshicoins.SC;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 
+import java.io.File;
 import java.nio.ByteBuffer;
 
 import java.security.MessageDigest;
@@ -33,28 +36,28 @@ import javax.swing.*;
 public class MouseEntropy extends JPanel implements MouseMotionListener {
     public static int SEEDSIZE = 512; // Number of bytes in the seed; must be a multiple of both ROWSIZE and md5.digest().length
 
-    private static Color BGCOLOR = Color.BLUE; // Background color of the mousePanel
-    private static Color DOTCOLOR = Color.RED; // Color of the dots added to the mousePanel
-    private static int POINTSIZE = 8; // Diameter (pixels) of the dots added to the mousePanel
-    private static int FONTSIZE = 13; // Size of textArea font
-    private static int FRAMESIZE = 550; // Overall size of the mouseEntropy window
-    private static int ROWSIZE = 32; // Number of bytes for each row in the textArea
-    private static int SAMPLESSIZE = 512; // Number of entropy samples to take.
-    private static long SAMPLETIME = 50000000; // Minimum time (in nano seconds) between mouse entropy samples.
-    private static String[] PREFERREDFONTS = {"Liberation Mono", "Courier New"}; // Fonts ordered by priority.
+    private static final Color BGCOLOR = Color.BLUE; // Background color of the mousePanel
+    private static final Color DOTCOLOR = Color.RED; // Color of the dots added to the mousePanel
+    private static final int POINTSIZE = 8; // Diameter (pixels) of the dots added to the mousePanel
+    private static final int FONTSIZE = 13; // Size of textArea font
+    private static final int FRAMESIZE = 550; // Overall size of the mouseEntropy window
+    private static final int ROWSIZE = 32; // Number of bytes for each row in the textArea
+    private static final int SAMPLESSIZE = 512; // Number of entropy samples to take.
+    private static final long SAMPLETIME = 50000000; // Minimum time (in nano seconds) between mouse entropy samples.
+    private static final String[] PREFERREDFONTS = {"Liberation Mono", "Courier New"}; // Fonts ordered by priority.
 
-    private MousePanel mousePanel; // Custom JPanel instance that updates (paints) each captured mouse movement with a dot
-    private JTextArea textArea; // Text area shows the entropy collection in real time and overall progress
-    private JFrame frame; // Links to the mouseEntropy window; used to repaint and update after each mouse movement
+    private final MousePanel mousePanel; // Custom JPanel instance that updates (paints) each captured mouse movement with a dot
+    private final JTextArea textArea; // Text area shows the entropy collection in real time and overall progress
+    private final JFrame frame; // Links to the mouseEntropy window; used to repaint and update after each mouse movement
 
-    private ArrayList<Point> mousePoints; // List of all the locations where mouse movements were captured
+    private final ArrayList<Point> mousePoints; // List of all the locations where mouse movements were captured
     private MessageDigest md5; // md5 routine used to mix in the captured mouse entropy with the initial seed
 
     private long timeStamp; // Additional entropy captured by measuring the "timeStamp" between mouse movement captures
     private int sampleNumber; // Counts the number of mouse movements; helps determine when enough has been captured
-    private byte[] seed; // Array links to initial entropy passed in the constructor; it is updated for each mouse movement
+    private final byte[] seed; // Array links to initial entropy passed in the constructor; it is updated for each mouse movement
 
-    private MouseEntropyCloseEvent closeEvent;
+    private final MouseEntropyCloseEvent closeEvent;
 
     public MouseEntropy(byte[] entropy, MouseEntropyCloseEvent closeEvent, JFrame frame) {
         super(new GridLayout(0, 1));
@@ -84,8 +87,8 @@ public class MouseEntropy extends JPanel implements MouseMotionListener {
 
         this.frame = frame; // Save the link to the overall frame (window) containing THIS panel and textArea component. Used to repaint itself after each mouse capture
 
-        mousePoints = new ArrayList();
-        try { md5 = MessageDigest.getInstance("MD5"); } catch(NoSuchAlgorithmException e) {}
+        mousePoints = new ArrayList<>();
+        try { md5 = MessageDigest.getInstance("MD5"); } catch(NoSuchAlgorithmException ignored) {}
 
         timeStamp = System.nanoTime();
         sampleNumber = 0;
@@ -98,18 +101,23 @@ public class MouseEntropy extends JPanel implements MouseMotionListener {
 
     // Runs this app to collect mouse entropy and stores it in the "bytes" array
     public static void run(byte[] bytes, MouseEntropyCloseEvent onClose) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame("Collect Mouse Entropy");
-                frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                JComponent component = new MouseEntropy(bytes, onClose, frame);
-                frame.setContentPane(component);
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setLocation(100, 100); // Open up the frame in the middle of the screen
-                frame.setVisible(true);
-                frame.setResizable(false);
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Collect Mouse Entropy");
+
+            try { // Load icon in the upper left of this window
+                String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+            } catch (Exception ignored) {
             }
+
+            frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            JComponent component = new MouseEntropy(bytes, onClose, frame);
+            frame.setContentPane(component);
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setLocation(100, 100);
+            frame.setVisible(true);
+            frame.setResizable(false);
         });
     }
 
@@ -144,8 +152,8 @@ public class MouseEntropy extends JPanel implements MouseMotionListener {
             g.fillRect(0, 0, FRAMESIZE + 10, FRAMESIZE + 10);
 
             g.setColor(DOTCOLOR);
-            for (int i = 0; i < mousePoints.size(); i++) {
-                g.fillOval(mousePoints.get(i).x, mousePoints.get(i).y, POINTSIZE, POINTSIZE);
+            for (Point mousePoint : mousePoints) {
+                g.fillOval(mousePoint.x, mousePoint.y, POINTSIZE, POINTSIZE);
             }
         }
     }
@@ -158,7 +166,7 @@ public class MouseEntropy extends JPanel implements MouseMotionListener {
             System.arraycopy(seed, i, bytes, 0, ROWSIZE);
             textArea.append(bytesToHex(bytes) + "\n");
         }
-        textArea.append("\nPercent Complete: " + Integer.toString(sampleNumber * 100 / SAMPLESSIZE) + "%");
+        textArea.append("\nPercent Complete: " + sampleNumber * 100 / SAMPLESSIZE + "%");
     }
     private static String bytesToHex(byte[] bytes) {
         char[] hexArray = "0123456789ABCDEF".toCharArray();

@@ -21,7 +21,7 @@ package org.satoshiware.keystickers.random;
 import java.nio.ByteBuffer;
 
 public class FortunaGenerator extends org.jitsi.bccontrib.prng.FortunaGenerator implements KSGenerator.RandomInterface {
-    private static int BUFFERSIZE = 4096;
+    private static final int BUFFERSIZE = 4096;
 
     private ByteBuffer buffer;
 
@@ -45,14 +45,6 @@ public class FortunaGenerator extends org.jitsi.bccontrib.prng.FortunaGenerator 
         }
 
         return buffer.get();
-    }
-
-    public String getInfo() {
-        String s = "Provider: Keystickers\n";
-        s += "Version: 1.0\n";
-        s += "Algorithm: Fortuna CSPRNG";
-
-        return s;
     }
 
     public String getName() {
