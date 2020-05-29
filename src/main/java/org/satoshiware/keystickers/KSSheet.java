@@ -1,6 +1,7 @@
 /*
  *      Each instance of this class represents a Keysticker sheet. The class
- *      implements the "Printable" interface for easy printing.
+ *      implements the "PrintableKeys" interface for easier key management
+ *      before printing.
  *
  *      This program is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -30,7 +31,6 @@ import java.awt.font.LineMetrics;
 import java.awt.font.TextAttribute;
 import java.awt.geom.AffineTransform;
 import java.awt.print.PageFormat;
-import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.text.AttributedString;
 
@@ -39,25 +39,20 @@ import java.time.LocalDateTime;
 
 import java.util.*;
 
-public class KSSheet implements Printable {
-    private static int PPL = 8; // Stroke width: Controls line thickness for frames and borders.
-    private static String[] PREFERREDFONTS = {"Liberation Serif", "Times New Roman"}; // Fonts ordered by priority.
-    private static int KSStyle = Font.PLAIN; // Style of the font (Font.PLAIN, Font.BOLD, Font.ITALIC, (Font.BOLD + Font.ITALIC))
+public class KSSheet implements PrintableKeys {
+    private static final int PPL = 8; // Stroke width: Controls line thickness for frames and borders.
+    private static final String[] PREFERREDFONTS = {"Liberation Serif", "Times New Roman"}; // Fonts ordered by priority.
+    private static final int FStyle = Font.PLAIN; // Style of the font (Font.PLAIN, Font.BOLD, Font.ITALIC, (Font.BOLD + Font.ITALIC))
 
-    public static int PPI = 2400; // Minimum 600 PPI to maintain good quality
-    public static double MARGIN = 0.35; // Printing margin (Inches)
+    private static final int PPI = 2400; // Minimum 600 PPI to maintain good quality
+    private static final double MARGIN = 0.35; // Printing margin (Inches)
+    private static final int KEYTOTAL = 12; // Number of keys per Sheet
 
     public boolean stickerOutlines; // If true, the Keysticker Borders are drawn. Facilitates debug on regular paper.
-    public boolean grayScaleTest; // If true, the QR (Private Key) and background vary in grey scale for each Keysticker.
-    public double horizontalShift; // Adjust sheet in the horizontal direction (inches).
-    public double verticalShift; // Adjust sheet in the vertical direction (inches).
-    public double rotationalShift; // Rotates sheet (degrees).
-    public float privateQRBackground; // The grey scale background color on the QR code for the Private Key. (0% - 100%)
-    public float privateQRGreyScale; // The grey scale color of the QR code for the Private Key. Used to obfuscate the Private Key. (0% - 100%)
+    public float privateKeyGreyScale; // The grey scale color for the Private Key (0% - 100%).
 
-    private String fullPubKeyStr[] = new String[12]; // Stores the public keys for this sheet
-    private String fullPrivKeyStr[] = new String[12]; // Stores the private keys for this sheet
-    private String qcNumberStr[] = new String[12]; // Stores the numbers used to facilitate QC verification.
+    private final String[] fullPubKeyStr = new String[KEYTOTAL]; // Stores the public keys for this sheet
+    private final String[] fullPrivKeyStr = new String[KEYTOTAL]; // Stores the private keys for this sheet
 
     private String thisFont; // Font used for this sheet
 
@@ -74,19 +69,12 @@ public class KSSheet implements Printable {
         }
 
         stickerOutlines = false;
-        grayScaleTest = false;
-        horizontalShift = 0;
-        verticalShift = 0;
-        rotationalShift = 0;
 
-        privateQRBackground = 100; // 100% is white
-        privateQRGreyScale = 0; // 0% is black
+        privateKeyGreyScale = 0; // 0% is black
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < KEYTOTAL; i++) {
             fullPrivKeyStr[i] = "";
             fullPubKeyStr[i] = "";
-
-            qcNumberStr[i] = "";
         }
     }
 
@@ -98,12 +86,10 @@ public class KSSheet implements Printable {
         }else if(!(pf.getHeight() > (8.4 * 72) && pf.getHeight() < (8.6 * 72) && pf.getWidth() > (10.9 * 72) && pf.getWidth() < (11.1 * 72))) {
             throw new PrinterException("KSSheet class only supports (8.5\" x 11\") paper");
         }else if((pf.getImageableX() / 72) >= MARGIN || (pf.getImageableY() / 72) >= MARGIN || (11.0 - ((pf.getImageableX() / 72) + (pf.getImageableWidth() / 72))) >= MARGIN || (8.5 - ((pf.getImageableY() / 72) + (pf.getImageableHeight() / 72))) > MARGIN) {
-            throw new PrinterException("KSSheet Java Class: All Printing Margins must be less than " + Double.toString(MARGIN) + "\"");
+            throw new PrinterException("KSSheet Java Class: All Printing Margins must be less than " + MARGIN + "\"");
         }
 
         g.scale ((double) 72 / PPI, (double) 72 / PPI); // Cheap hack to change graphic resolution. java.awt.print is fixed at 72 PPI.
-        g.translate(horizontalShift * PPI, verticalShift * PPI); // Make translational adjustments for printer inaccuracies.
-        g.rotate(Math.toRadians(rotationalShift), (5.5 - horizontalShift) * PPI, (4.25 - verticalShift) * PPI); // Make rotational adjustments (+clockwise, -counterclockwise).
 
         // Draw frames around each Keystickers
         drawFrame(g);
@@ -114,8 +100,8 @@ public class KSSheet implements Printable {
         }
 
         // Write sheet details: "KEYSTICKERS", Page #, Date, and Time
-        String sheetDetails = "            KEYSTICKERS                     PAGE: " + Integer.toString(page + 1) + "                     " + DateTimeFormatter.ofPattern("MM/dd/yyyy                     HH:mm:ss").format(LocalDateTime.now());
-        drawKSString(g, sheetDetails, (int)(0.5375 * PPI), (int)(MARGIN * PPI), 90, -(int)getAscent(g, sheetDetails, (int)((0.5375 - MARGIN) * PPI)),0, (int) ((0.5375 - MARGIN) * PPI));
+        String sheetDetails = "            KEYSTICKERS                     PAGE: " + (page + 1) + "                     " + DateTimeFormatter.ofPattern("MM/dd/yyyy                     HH:mm:ss").format(LocalDateTime.now());
+        drawString(g, sheetDetails, (int)(0.5375 * PPI), (int)(MARGIN * PPI), 90, -(int)getAscent(g, sheetDetails, (int)((0.5375 - MARGIN) * PPI)),0, (int) ((0.5375 - MARGIN) * PPI));
 
         // Draw Public Key QR codes
         try {
@@ -126,90 +112,69 @@ public class KSSheet implements Printable {
                     drawQR(g, new Point((int)((2.9375 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI)), (int)(0.75 * PPI), fullPubKeyStr[6 + i + (j * 3)], ErrorCorrectionLevel.M);
                 }
             }
-        } catch (WriterException e) {
+        } catch (WriterException ignored) {
         }
 
-        // Write the grey scale strength for each Private QR and its background for each Keysticker
-        if(grayScaleTest){
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 2; j++) {
-                    String s = "BG: " + Integer.toString(100 - getGreyscale(i + (j * 3) + 1, true)) + "%    FG: " + Integer.toString(100 - getGreyscale(i + (j * 3) + 1, false)) + "%";
-                    int ascent = (int)getAscent(g, s, (int)(0.12 * PPI));
-                    drawKSString(g, s, (int)((3.7813 + (((i == 1) ? 3.4375 : (3.78125 - MARGIN)) * i)) * PPI), (int)((MARGIN + ((2.2 - MARGIN) * j)) * PPI), 90, -ascent, (int)(0.0625 * PPI), (int) (0.12 * PPI));
-
-                    s = "BG: " + Integer.toString(100 - getGreyscale(7 + i + (j * 3), true)) + "%    FG: " + Integer.toString(100 - getGreyscale(7 + i + (j * 3), false)) + "%";
-                    drawKSString(g, s, (int)((3.7813 + (((i == 1) ? 3.4375 : (3.78125 - MARGIN)) * i)) * PPI), (int)((4.2500 + (2.05 * j)) * PPI), 90, -ascent, (int)(0.0625 * PPI), (int) (0.12 * PPI));
-                }
-            }
-        }
-
-        // Draw Private Key Background
-        if((privateQRBackground >= 0 && privateQRBackground < 100) || grayScaleTest){
-            g.setColor(new Color(privateQRBackground / 100, privateQRBackground / 100, privateQRBackground / 100));
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 2; j++) {
-                    g.setColor(new Color((float)getGreyscale(i + (j * 3) + 1, true) / 100, (float)getGreyscale(i + (j * 3) + 1, true) / 100, (float)getGreyscale(i + (j * 3) + 1, true) / 100));
-                    g.fillOval((int)((2.5625 - (Math.sqrt(2) / 2) + (3.4375 * i)) * PPI), (int)((1.1750 - (Math.sqrt(2) / 2) + (2.05 * j)) * PPI), (int)(Math.sqrt(2) * PPI), (int)(Math.sqrt(2) * PPI));
-
-                    g.setColor(new Color((float)getGreyscale(7 + i + (j * 3), true) / 100, (float)getGreyscale(7 + i + (j * 3), true) / 100, (float)getGreyscale(7 + i + (j * 3), true) / 100));
-                    g.fillOval((int)((1.5625 - (Math.sqrt(2) / 2) + (3.4375 * i)) * PPI), (int)((5.2750 - (Math.sqrt(2) / 2) + (2.05 * j)) * PPI), (int)(Math.sqrt(2) * PPI), (int)(Math.sqrt(2) * PPI));
-                }
-            }
-        }
-
-        // Draw Private Key QR codes
-        if(privateQRGreyScale > 0 && privateQRGreyScale <= 100){
-            g.setColor(new Color(privateQRGreyScale / 100, privateQRGreyScale / 100, privateQRGreyScale / 100));
+        // Draw Private Key (QR & string) codes
+        if(privateKeyGreyScale > 0 && privateKeyGreyScale <= 100){
+            g.setColor(new Color(privateKeyGreyScale / 100, privateKeyGreyScale / 100, privateKeyGreyScale / 100));
         }else {
             g.setColor(Color.BLACK);
         }
         try {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 2; j++) {
-                    if(grayScaleTest) g.setColor(new Color((float)getGreyscale(i + (j * 3) + 1, false) / 100, (float)getGreyscale(i + (j * 3) + 1, false) / 100, (float)getGreyscale(i + (j * 3) + 1, false) / 100));
-                    drawQR(g, new Point((int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI)), (1 * PPI), fullPrivKeyStr[i + (j * 3)], ErrorCorrectionLevel.H);
+                    final double sizeQR = 0.9; // Size of private key QR code in inches.
+                    final double sizeText = 0.1; // Size of Private key text in inches.
+                    final double distance = 0.05; // Distance between text and QR code (inches).
+                    final double offset = 0.05; // Text begins and ends inline with the edge of the QR code +/- offset (inches).
+                    drawQR(g, new Point((int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI)), (int)(sizeQR * PPI), fullPrivKeyStr[i + (j * 3)], ErrorCorrectionLevel.H);
+                    String[] s = splitPrivKeyString(g, "•" + fullPrivKeyStr[i + (j * 3)]);
+                    drawString(g, s[0], (int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI), 0, -(int)(((sizeQR / 2) - offset) * PPI), -(int)(((sizeQR / 2) + distance) * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[1], (int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI), 90, (int)(((sizeQR / 2) + distance)  * PPI), -(int)(((sizeQR / 2) - offset) * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[2], (int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI), 180, (int)(((sizeQR / 2) - offset) * PPI), (int)(((sizeQR / 2) + distance) * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[3] + " ", (int)((2.5625 + (3.4375 * i)) * PPI), (int)((1.1750 + (2.05 * j)) * PPI), 270, -(int)(((sizeQR / 2) + distance)  * PPI), (int)(((sizeQR / 2) - offset)  * PPI), (int) (sizeText * PPI));
 
-                    if(grayScaleTest) g.setColor(new Color((float)getGreyscale(7 + i + (j * 3), false) / 100, (float)getGreyscale(7 + i + (j * 3), false) / 100, (float)getGreyscale(7 + i + (j * 3), false) / 100));
-                    drawQR(g, new Point((int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI)), (1 * PPI), fullPrivKeyStr[6 + i + (j * 3)], ErrorCorrectionLevel.H);
+                    drawQR(g, new Point((int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI)), (int)(sizeQR * PPI), fullPrivKeyStr[6 + i + (j * 3)], ErrorCorrectionLevel.H);
+                    s = splitPrivKeyString(g, "•" + fullPrivKeyStr[6 + i + (j * 3)]);
+                    drawString(g, s[0], (int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI), 180, (int)(((sizeQR / 2) - offset) * PPI), (int)(((sizeQR / 2) + distance) * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[1], (int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI), 270, -(int)(((sizeQR / 2) + distance)  * PPI), (int)(((sizeQR / 2) - offset)  * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[2], (int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI), 0, -(int)(((sizeQR / 2) - offset) * PPI), -(int)(((sizeQR / 2) + distance) * PPI), (int) (sizeText * PPI));
+                    drawString(g, s[3] + " ", (int)((1.5625 + (3.4375 * i)) * PPI), (int)((5.2750 + (2.05 * j)) * PPI), 90, (int)(((sizeQR / 2) + distance)  * PPI), -(int)(((sizeQR / 2) - offset) * PPI), (int) (sizeText * PPI));
                 }
             }
-        } catch (WriterException e) {
+        } catch (WriterException ignored) {
         }
         g.setColor(Color.BLACK);
 
         // Write truncated Public Keys on the Keystickers
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
-                String s = truncateText(g, (int)(0.75 * PPI), fullPubKeyStr[i + (j * 3)], (int)(0.08 * PPI));
-                drawKSString(g, s, (int)((1.6625 + (3.4375 * i)) * PPI), (int)((0.8000 + (2.05 * j)) * PPI), 90, 0, 0, (int) (0.08 * PPI));
+                String s = truncateAddress(g, (int)(0.75 * PPI), fullPubKeyStr[i + (j * 3)], (int)(0.1 * PPI));
+                drawString(g, s, (int)((1.6375 + (3.4375 * i)) * PPI), (int)((0.8000 + (2.05 * j)) * PPI), 90, 0, 0, (int) (0.1 * PPI));
 
-                s = truncateText(g, (int)(0.75 * PPI), fullPubKeyStr[6 + i + (j * 3)], (int)(0.08 * PPI));
-                drawKSString(g, s, (int)((2.4625 + (3.4375 * i)) * PPI), (int)((5.65 + (2.05 * j)) * PPI), 270, 0, 0, (int) (0.08 * PPI));
-            }
-        }
-
-        // Write QC verification numbers.
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                int descent = (int)getDescent(g, qcNumberStr[i + (j * 3)], (int)(0.16 * PPI));
-                drawKSString(g, qcNumberStr[i + (j * 3)], (int)((0.6875 + (3.4375 * i)) * PPI), (int)((2.2000 + (2.05 * j)) * PPI), 0, 0, -descent, (int) (0.16 * PPI));
-
-                int ascent = (int)getAscent(g, qcNumberStr[6 + i + (j * 3)], (int)(0.16 * PPI));
-                drawKSString(g, qcNumberStr[6 + i + (j * 3)], (int)((2.1823 + (3.4375 * i)) * PPI), (int)((4.2500 + (2.05 * j)) * PPI), 0, 0, ascent, (int) (0.16 * PPI));
+                s = truncateAddress(g, (int)(0.75 * PPI), fullPubKeyStr[6 + i + (j * 3)], (int)(0.1 * PPI));
+                drawString(g, s, (int)((2.4875 + (3.4375 * i)) * PPI), (int)((5.65 + (2.05 * j)) * PPI), 270, 0, 0, (int) (0.1 * PPI));
             }
         }
 
         // Write Sticker numbers
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
-                int ascent = (int)getAscent(g, "#" + Integer.toString(i + (j * 3) + 1), (int)(0.2 * PPI));
-                drawKSString(g, "#" + Integer.toString(i + (j * 3) + 1), (int)((0.5375 + (i == 2 ? 6.68125 : 3.24375 * i)) * PPI), (int)((MARGIN + (1.85 * j)) * PPI), 0, (int)(0.0625 * PPI), ascent, (int) (0.2 * PPI));
+                int ascent = (int)getAscent(g, "#" + (i + (j * 3) + 1), (int)(0.2 * PPI));
+                final int offset = (int)((0.5375 + (i == 2 ? 6.68125 : 3.24375 * i)) * PPI);
+                drawString(g, "#" + (i + (j * 3) + 1), offset, (int)((MARGIN + (1.85 * j)) * PPI), 0, (int)(0.0625 * PPI), ascent, (int) (0.2 * PPI));
 
-                drawKSString(g, "#" + Integer.toString(7 + i + (j * 3)), (int)((0.5375 + (i == 2 ? 6.68125 : 3.24375 * i)) * PPI), (int)((4.2500 + (2.05 * j)) * PPI), 0, (int)(0.0625 * PPI), ascent, (int) (0.2 * PPI));
+                drawString(g, "#" + (7 + i + (j * 3)), offset, (int)((4.2500 + (2.05 * j)) * PPI), 0, (int)(0.0625 * PPI), ascent, (int) (0.2 * PPI));
             }
         }
 
         return PAGE_EXISTS;
+
+    }
+
+    public int getKeyTotal() {
+        return KEYTOTAL;
     }
 
     public void setPublicKey(String text, int stickerNumber) {
@@ -226,26 +191,12 @@ public class KSSheet implements Printable {
         fullPrivKeyStr[stickerNumber - 1] = text;
     }
 
-    public void setQCNumber(String text, int stickerNumber) {
-        if (text == null) {
-            throw new NullPointerException();
-        }
-        qcNumberStr[stickerNumber - 1] = text;
-    }
-
     public String getPrivateKey(int stickerNumber) {
-        String s = fullPrivKeyStr[stickerNumber - 1];
-        return s;
+        return fullPrivKeyStr[stickerNumber - 1];
     }
 
     public String getPublicKey(int stickerNumber) {
-        String s = fullPubKeyStr[stickerNumber - 1];
-        return s;
-    }
-
-    public String getQCNumber(int stickerNumber) {
-        String s = qcNumberStr[stickerNumber - 1];
-        return s;
+        return fullPubKeyStr[stickerNumber - 1];
     }
 
     @Override
@@ -253,18 +204,13 @@ public class KSSheet implements Printable {
         try {
             KSSheet nSheet = (KSSheet)super.clone();
 
-            for (int i = 1; i <= 12; i++) {
+            for (int i = 1; i <= KEYTOTAL; i++) {
                 nSheet.setPublicKey(this.getPublicKey(i), i);
                 nSheet.setPrivateKey(this.getPrivateKey(i), i);
-                nSheet.setQCNumber(this.getQCNumber(i), i);
             }
 
             nSheet.stickerOutlines = this.stickerOutlines;
-            nSheet.horizontalShift = this.horizontalShift;
-            nSheet.verticalShift = this.verticalShift;
-            nSheet.rotationalShift = this.rotationalShift;
-            nSheet.privateQRBackground = this.privateQRBackground;
-            nSheet.privateQRGreyScale = this.privateQRGreyScale;
+            nSheet.privateKeyGreyScale = this.privateKeyGreyScale;
 
             return nSheet;
         } catch (CloneNotSupportedException e) {
@@ -365,8 +311,9 @@ public class KSSheet implements Printable {
         }
     }
 
-    private void drawKSString(Graphics2D g, String text, int x, int y, double angle, int xOffset, int yOffset, int size) {
-        Font f = new Font(thisFont, KSStyle, size);
+    // Adds text to the sheet at the desired location, orientation, and size
+    private void drawString(Graphics2D g, String text, int x, int y, double angle, int xOffset, int yOffset, int size) {
+        Font f = new Font(thisFont, FStyle, size);
 
         AffineTransform affineTransform = new AffineTransform();
         affineTransform.rotate(Math.toRadians(angle), 0, 0);
@@ -379,96 +326,50 @@ public class KSSheet implements Printable {
 
     // Gets the ascent from the font and its size; The recommended distance above the baseline for singled spaced text
     private float getAscent(Graphics2D g, String text, int size) { // The distance from the baseline to the ascender line.
-        Font f = new Font(thisFont, KSStyle, size);
+        Font f = new Font(thisFont, FStyle, size);
         LineMetrics lineMetrics = f.getLineMetrics(text, g.getFontRenderContext());
         return lineMetrics.getAscent();
         // The ascent usually represents the the height of the capital letters of the text. Some characters can extend above the ascender line.
     }
 
-    // Gets the descent from the font and its size; The recommended distance below the baseline for singled spaced text.
-    private float getDescent(Graphics2D g, String text, int size) { // The distance from the baseline to the descender line.
-        Font f = new Font(thisFont, KSStyle, size);
-        LineMetrics lineMetrics = f.getLineMetrics(text, g.getFontRenderContext());
-        return lineMetrics.getDescent();
-        // The descent usually represents the distance to the bottom of lower case letters like 'p'. Some characters can extend below the descender line.
+    // Shortens the hashed public Key address while preserving sufficient data for verification. The data shown is selected at random for better security.
+    private String truncateAddress(Graphics2D g, int width, String address, int size) {
+        String trnAddress = address;
+
+        if (g.getFontMetrics(new Font(thisFont, FStyle, size)).stringWidth(trnAddress) < width)
+            return trnAddress;
+
+        // Select random portion of the address after the first 4 characters.
+        int iRnd = (int)(Math.random() * (trnAddress.length() - 4)) + 4; // 4 <= iRnd < (trnText.length() - 4)
+        if (iRnd != 4)
+            trnAddress = trnAddress.substring(0, 4) + "..." + trnAddress.substring(iRnd);
+
+        if (g.getFontMetrics(new Font(thisFont, FStyle, size)).stringWidth(trnAddress) >= width) { // String is too long; let's shorten it.
+            while (g.getFontMetrics(new Font(thisFont, FStyle, size)).stringWidth(trnAddress + "...") >= width)
+                trnAddress = trnAddress.substring(0, trnAddress.length() - 1);
+
+            return trnAddress + "...";
+        } else if (g.getFontMetrics(new Font(thisFont, FStyle, size)).stringWidth(trnAddress) <= (int)(width * 0.8)) { // String too short (less than 80% of desired width); let's try again (Recursion).
+            return truncateAddress(g, width, address, size);
+        } else { // Length of string is about right.
+            return trnAddress;
+        }
     }
 
-    // Removes the leading characters from a string to fit within the desired length; "..." are then added at the end.
-    private String truncateText(Graphics2D g, int width, String text, int size) { // Truncate the length of the string to fit within given width.
-        String trnText = text;
+    // Splits the text of a private key (into a 4 element string array) so that it can be wrapped around the private key QR code.
+    private String[] splitPrivKeyString(Graphics2D g, String key) {
+        String[] strArray = new String[4];
+        strArray[0] = "";
+        strArray[1] = "";
 
-        if (g.getFontMetrics(new Font(thisFont, KSStyle, size)).stringWidth(trnText) < width) {
-            return trnText;
-        } else {
-            while (trnText.length() > 0 && g.getFontMetrics(new Font(thisFont, KSStyle, size)).stringWidth(trnText + "...") >= width) {
+        for(int i = 0; i < 3; i++) {
+            String trnText = key.substring(strArray[0].length() + strArray[1].length());
+            while (g.getFontMetrics(new Font(thisFont, FStyle, 240)).stringWidth(trnText) >= 1920)
                 trnText = trnText.substring(0, trnText.length() - 1);
-            }
-            return trnText + "...";
+            strArray[i] = trnText;
         }
-    }
+        strArray[3] = key.substring(strArray[0].length() + strArray[1].length() + strArray[2].length());
 
-    // Gets the percent values used in the grey scale test; each value defines the darkness of the private key or its background
-    private int getGreyscale(int stickerNumber, boolean isBackground) {
-        int background;
-        int foreground;
-        switch (stickerNumber) {
-            case 1:
-                background = 100;
-                foreground = 0;
-                break;
-            case 2:
-                background = 70;
-                foreground = 0;
-                break;
-            case 3:
-                background = 100;
-                foreground = 30;
-                break;
-            case 4:
-                background = 60;
-                foreground = 0;
-                break;
-            case 5:
-                background = 80;
-                foreground = 20;
-                break;
-            case 6:
-                background = 100;
-                foreground = 40;
-                break;
-            case 7:
-                background = 50;
-                foreground = 0;
-                break;
-            case 8:
-                background = 60;
-                foreground = 10;
-                break;
-            case 9:
-                background = 70;
-                foreground = 20;
-                break;
-            case 10:
-                background = 80;
-                foreground = 30;
-                break;
-            case 11:
-                background = 90;
-                foreground = 40;
-                break;
-            case 12:
-                background = 100;
-                foreground = 50;
-                break;
-            default:
-                background = 100;
-                foreground = 0;
-        }
-
-        if(isBackground) {
-            return background;
-        }else {
-            return foreground;
-        }
+        return strArray;
     }
 }

@@ -2,8 +2,8 @@
 target/
 
 # IntelliJ
-out/
 lib/
+out/
 
 # User-specific stuff
 .idea/**/workspace.xml

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="wf.bitcoin:bitcoin-rpc-client:1.1.1" type="repository">
+    <properties maven-id="wf.bitcoin:bitcoin-rpc-client:1.1.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/bitcoin-rpc-client-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
