@@ -144,18 +144,18 @@ public class Main extends JFrame {
         if (args.length == 0) {
             System.out.println("Program Argument Required:");
             System.out.println("    -v          Verify checksums of external jar files");
-            System.out.println("    -s          Launch Keystickers");
-            System.out.println("    -c          Launch Satoshi Coins");
+            System.out.println("    -k          Launch Keystickers");
+            System.out.println("    -s          Launch Satoshi Coins");
             System.out.println("    -t          Launch Satoshi Coins (Testnet)");
         } else if (args.length == 1) {
             switch (args[0]) {
-                case "-c":
+                case "-s":
                     SC.run(false);
                     break;
                 case "-t":
                     SC.run(true);
                     break;
-                case "-s":
+                case "-k":
                     SwingUtilities.invokeLater(() -> {
                         Main main = new Main("Keystickers");
 
