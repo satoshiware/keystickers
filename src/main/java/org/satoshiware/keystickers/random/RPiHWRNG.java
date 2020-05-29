@@ -71,8 +71,12 @@ public class RPiHWRNG implements Callable<Object>, KSGenerator.RandomInterface {
             try {
                 future.get();
             }catch (ExecutionException | InterruptedException e) {
-                System.out.println("The \"" + rndSrc + "\" stream was NOT successfully opened.");
-                System.out.println("Are you on a Raspberry Pi with HWRNG support?");
+                System.out.print("The \"" + rndSrc + "\" stream was NOT successfully opened: ");
+                if(e.getMessage().contains("Permission"))
+                    System.out.println("Permission Denied!");
+                else
+                    System.out.println("You are not running on a Raspberry Pi with HWRNG support!");
+
                 in = null;
                 return false;
             }

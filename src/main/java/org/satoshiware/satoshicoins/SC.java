@@ -206,7 +206,7 @@ public class SC extends JFrame {
                 txtAreaCoinInfo.setText(sb.toString());
 
                 if (coins.size() > 500) { // Enforce transaction size limit to around 16K Bytes; Very large transactions may sit in the memory pool much longer than anticipated without an expedited fee rate.
-                    JOptionPane.showMessageDialog(mainPanel, "Let's keep the number of coins 500 or less", "Transaction Too Large", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainPanel, "Let's keep the number of coins to 500 or less", "Transaction Too Large", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             } //endregion
