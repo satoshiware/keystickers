@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4" />
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="com.google.zxing:core:3.3.3" level="project" />
+    <orderEntry type="library" name="org.bitcoinj:bitcoinj-core:0.14.7" level="project" />
+    <orderEntry type="library" name="org.slf4j:slf4j-jdk14:1.7.12" level="project" />
+    <orderEntry type="library" name="org.jitsi:bccontrib:1.0" level="project" />
+    <orderEntry type="library" name="com.intellij:forms_rt:7.0.3" level="project" />
+  </component>
+</module>

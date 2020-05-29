@@ -20,7 +20,6 @@ package org.satoshiware.keystickers;
 import org.bitcoinj.core.*;
 
 public class KSKey {
-<<<<<<< Updated upstream
     // These values (NOTVALID, WIF, TESTWIF, P2PKH, TESTP2PKH, NP2WPKH, and TESTNP2WPKH) are returned in the keyCheck method
     public static int NOTVALID = -1;
 
@@ -34,9 +33,6 @@ public class KSKey {
     public static int TESTNP2WPKH = 41; // Native segwit testnet address (Bech32)
 
     private ECKey key;
-=======
-    private final ECKey key;
->>>>>>> Stashed changes
     public boolean testnet;
 
     // Construct a KSKey with the private key derived from the passed bytes

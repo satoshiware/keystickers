@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.satoshiware.keystickers.Main">
-<<<<<<< Updated upstream
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="12" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
-=======
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
->>>>>>> Stashed changes
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="510" height="420"/>
+      <xy x="20" y="20" width="640" height="420"/>
     </constraints>
     <properties>
       <alignmentX value="0.0"/>
       <alignmentY value="0.0"/>
-      <maximumSize width="510" height="390"/>
-      <minimumSize width="510" height="390"/>
+      <maximumSize width="640" height="390"/>
+      <minimumSize width="640" height="390"/>
       <name value=""/>
-      <preferredSize width="510" height="390"/>
+      <preferredSize width="640" height="390"/>
     </properties>
     <border type="none"/>
     <children>
@@ -125,29 +121,21 @@
       </component>
       <component id="c5525" class="javax.swing.JButton" binding="btnPrint">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="10" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="630" height="30"/>
             <preferred-size width="630" height="30"/>
             <maximum-size width="630" height="30"/>
-=======
-          <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="490" height="30"/>
-            <preferred-size width="490" height="30"/>
-            <maximum-size width="490" height="30"/>
->>>>>>> Stashed changes
           </grid>
         </constraints>
         <properties>
           <alignmentX value="0.0"/>
           <alignmentY value="0.0"/>
           <text value="Print"/>
-          <toolTipText value="Generates keys and opens the Print Job dialog box"/>
+          <toolTipText value="Generates keys, QC log, and opens the Print Job dialog box"/>
         </properties>
       </component>
       <component id="2b37a" class="javax.swing.JButton" binding="btnQCVerify">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="630" height="30"/>
             <preferred-size width="630" height="30"/>
@@ -159,23 +147,10 @@
           <alignmentY value="0.0"/>
           <text value="Quality Control (QC)"/>
           <toolTipText value="Opens the QC application"/>
-=======
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="280" height="30"/>
-            <preferred-size width="280" height="30"/>
-            <maximum-size width="280" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Number of Pages (12 Keys / Sheet)"/>
-          <toolTipText value="Number of pages that will be generated and printed"/>
-          <verifyInputWhenFocusTarget value="true"/>
->>>>>>> Stashed changes
         </properties>
       </component>
       <component id="6b4e7" class="javax.swing.JButton" binding="btnSelectQCFileDest">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="420" height="30"/>
             <preferred-size width="420" height="30"/>
@@ -187,55 +162,27 @@
           <margin top="0" left="0" bottom="0" right="0"/>
           <text value="Select QC Destination"/>
           <toolTipText value="The destination where the .txt log file will be saved for each print job. This log file contains all the quality control information necessary to validate each Keysticker.  (e.g. QC10312009210000.txt)"/>
-=======
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="280" height="30"/>
-            <preferred-size width="280" height="30"/>
-            <maximum-size width="280" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="1"/>
-          <toolTipText value="Number of pages that will be generated and printed"/>
->>>>>>> Stashed changes
         </properties>
       </component>
       <component id="3af89" class="javax.swing.JLabel" binding="lblQCDestFile">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-=======
-          <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
->>>>>>> Stashed changes
             <minimum-size width="420" height="30"/>
             <preferred-size width="420" height="30"/>
             <maximum-size width="420" height="30"/>
           </grid>
         </constraints>
         <properties>
-<<<<<<< Updated upstream
           <text value="QC Destination: NULL"/>
           <toolTipText value="The destination where the .txt log file will be saved for each print job. This log file contains all the quality control information necessary to validate each Keysticker.  (e.g. QC10312009210000.txt)"/>
-=======
-          <requestFocusEnabled value="false"/>
-          <text value="lblRandomInfo3"/>
-          <toolTipText value="Raspberry Pi's HWRNG (True Random Number Generator)"/>
->>>>>>> Stashed changes
         </properties>
       </component>
       <component id="eb6b8" class="javax.swing.JLabel" binding="lblTotalPages">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
-=======
-          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="420" height="30"/>
-            <preferred-size width="420" height="30"/>
-            <maximum-size width="420" height="30"/>
->>>>>>> Stashed changes
           </grid>
         </constraints>
         <properties>
@@ -245,17 +192,10 @@
       </component>
       <component id="abd20" class="javax.swing.JTextField" binding="txtTotalPages">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="206" height="30"/>
             <preferred-size width="206" height="30"/>
             <maximum-size width="206" height="30"/>
-=======
-          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="420" height="30"/>
-            <preferred-size width="420" height="30"/>
-            <maximum-size width="420" height="30"/>
->>>>>>> Stashed changes
           </grid>
         </constraints>
         <properties>
@@ -263,7 +203,6 @@
           <toolTipText value="Number of Keysticker pages that will be generated and printed (Maximum = 500)"/>
         </properties>
       </component>
-<<<<<<< Updated upstream
       <component id="bc37c" class="javax.swing.JTextField" binding="txtBGGrayscale">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -283,19 +222,10 @@
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
-=======
-      <component id="991d1" class="javax.swing.JTextField" binding="txtKeyDarkness">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="280" height="30"/>
-            <preferred-size width="280" height="30"/>
-            <maximum-size width="280" height="30"/>
->>>>>>> Stashed changes
           </grid>
         </constraints>
         <properties>
           <text value="100"/>
-<<<<<<< Updated upstream
           <toolTipText value="Configures the grayscale for the Private Key QR Codes (Default = 100% / Black)"/>
         </properties>
       </component>
@@ -305,17 +235,6 @@
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
-=======
-          <toolTipText value="Keystickers: Configures the grayscale for the Private Key (Default = 100% / Black)"/>
-        </properties>
-      </component>
-      <component id="97362" class="javax.swing.JButton" binding="btnRndQCVisual">
-        <constraints>
-          <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="490" height="30"/>
-            <preferred-size width="490" height="30"/>
-            <maximum-size width="490" height="30"/>
->>>>>>> Stashed changes
           </grid>
         </constraints>
         <properties/>
@@ -329,7 +248,6 @@
           </grid>
         </constraints>
         <properties>
-<<<<<<< Updated upstream
           <requestFocusEnabled value="false"/>
           <text value="lblRandomInfo3"/>
           <toolTipText value="Select a HWRNG (True Random Number Generators) or a “.dat” file with plently of raw random data. Each Bitcoin key is created by XOR’ing numbers from each RNG source."/>
@@ -364,50 +282,12 @@
       <component id="c7214" class="javax.swing.JLabel" binding="lblKeyType">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-=======
-          <alignmentX value="0.0"/>
-          <alignmentY value="0.0"/>
-          <text value="RNG Visual Check"/>
-          <toolTipText value="Provides a visual sanity check for each RNG source. Look for plenty of dots without any patterns"/>
-        </properties>
-      </component>
-      <component id="d637b" class="javax.swing.JLabel" binding="lblKeyDarkness">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Private Key Darkness (%)"/>
-          <toolTipText value="Keystickers: Configures the grayscale for the Private Key (Default = 100% / Black)"/>
-        </properties>
-      </component>
-      <component id="489ac" class="javax.swing.JRadioButton" binding="rBtnSatoshiCoins">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false">
-            <minimum-size width="210" height="30"/>
-            <preferred-size width="210" height="30"/>
-            <maximum-size width="210" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Satoshi Coins"/>
-          <toolTipText value="Select to generate Satoshi Coins"/>
-        </properties>
-      </component>
-      <component id="c36bb" class="javax.swing.JRadioButton" binding="rBtnKeystickers">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false">
->>>>>>> Stashed changes
-            <minimum-size width="210" height="30"/>
-            <preferred-size width="210" height="30"/>
-            <maximum-size width="210" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-<<<<<<< Updated upstream
           <text value="Key Type"/>
         </properties>
       </component>
@@ -423,31 +303,10 @@
           <alignmentX value="0.5"/>
           <text value="RNG Visual Check"/>
           <toolTipText value="Provides a visual sanity check for each RNG source. Look for plenty of dots without any patterns"/>
-=======
-          <selected value="true"/>
-          <text value="Keystickers"/>
-          <toolTipText value="Select to generate Keystickers"/>
-        </properties>
-      </component>
-      <component id="4de73" class="javax.swing.JLabel" binding="lblAmount">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="280" height="30"/>
-            <preferred-size width="280" height="30"/>
-            <maximum-size width="280" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <enabled value="false"/>
-          <opaque value="false"/>
-          <text value="Amount ($atoshis)"/>
-          <toolTipText value="Satoshi Coins: Enter the amount of $atoshis for this batch"/>
->>>>>>> Stashed changes
         </properties>
       </component>
       <component id="62922" class="javax.swing.JButton" binding="btnSelectExtSrc">
         <constraints>
-<<<<<<< Updated upstream
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
@@ -463,30 +322,12 @@
       <component id="b9a33" class="javax.swing.JCheckBox" binding="checkGrayScaleTest">
         <constraints>
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false">
-=======
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="280" height="30"/>
-            <preferred-size width="280" height="30"/>
-            <maximum-size width="280" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <enabled value="false"/>
-          <text value="1,000,000"/>
-          <toolTipText value="Satoshi Coins: Enter the amount of $atoshis for this batch"/>
-        </properties>
-      </component>
-      <component id="b07b1" class="javax.swing.JCheckBox" binding="checkOutline">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false">
->>>>>>> Stashed changes
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
           </grid>
         </constraints>
         <properties>
-<<<<<<< Updated upstream
           <text value="Test Gray Scales"/>
           <toolTipText value="Check box for several grayscale tones on the Private Key QR Code and its background (helps dial in desired grayscale levels for optimal security)"/>
         </properties>
@@ -521,29 +362,14 @@
       <component id="43795" class="javax.swing.JCheckBox" binding="checkReserved">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false">
-=======
-          <text value="Keysticker Outline"/>
-          <toolTipText value="Check box for Keysticker outlines to show on each printed sheet (Not for production)"/>
-        </properties>
-      </component>
-      <component id="a2397" class="javax.swing.JCheckBox" binding="checkTestnet">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false">
->>>>>>> Stashed changes
             <minimum-size width="210" height="30"/>
             <preferred-size width="210" height="30"/>
             <maximum-size width="210" height="30"/>
           </grid>
         </constraints>
         <properties>
-<<<<<<< Updated upstream
           <text value="Reserved"/>
           <toolTipText value="Reserved. Does nothing."/>
-=======
-          <selected value="false"/>
-          <text value="Testnet"/>
-          <toolTipText value="Check box for Testnet Bitcoin addresses"/>
->>>>>>> Stashed changes
         </properties>
       </component>
     </children>
