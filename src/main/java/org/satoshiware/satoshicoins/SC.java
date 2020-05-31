@@ -686,33 +686,42 @@ public class SC extends JFrame {
         mainPanel.add(scrollPaneCoinInfo, new GridConstraints(1, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, new Dimension(620, 500), new Dimension(620, 500), new Dimension(620, 500), 0, false));
         txtAreaCoinInfo = new JTextArea();
         txtAreaCoinInfo.setColumns(0);
+        txtAreaCoinInfo.setToolTipText("Enter the address for each coin followed by the amount, in $ATOSHIS, to be loaded (space delimited)");
         scrollPaneCoinInfo.setViewportView(txtAreaCoinInfo);
         txtTXID = new JTextField();
         txtTXID.setEnabled(true);
+        txtTXID.setToolTipText("The TXID of the previous Satoshi Coins transaction");
         mainPanel.add(txtTXID, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(560, 20), new Dimension(560, 20), new Dimension(560, 20), 0, false));
         lblTXID = new JLabel();
         lblTXID.setEnabled(true);
         lblTXID.setText("TXID");
+        lblTXID.setToolTipText("The TXID of the previous Satoshi Coins transaction");
         mainPanel.add(lblTXID, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, 20), new Dimension(50, 20), new Dimension(50, 20), 0, false));
         lblPrivateKey = new JLabel();
         lblPrivateKey.setEnabled(true);
         lblPrivateKey.setText("Key");
+        lblPrivateKey.setToolTipText("The unlock key to output 0 of the previous Satoshi Coins transaction");
         mainPanel.add(lblPrivateKey, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, 20), new Dimension(50, 20), new Dimension(50, 20), 0, false));
         lblVout0 = new JLabel();
         lblVout0.setEnabled(true);
         lblVout0.setText("Vout 0");
+        lblVout0.setToolTipText("Output 0 of this transaction; used to extend this chain of Satoshi Coins");
         mainPanel.add(lblVout0, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, 20), new Dimension(50, 20), new Dimension(50, 20), 0, false));
         txtPrivateKey = new JTextField();
         txtPrivateKey.setEnabled(true);
+        txtPrivateKey.setToolTipText("The unlock key to output 0 of the previous Satoshi Coins transaction");
         mainPanel.add(txtPrivateKey, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(560, 20), new Dimension(560, 20), new Dimension(560, 20), 0, false));
         txtAddressVout0 = new JTextField();
+        txtAddressVout0.setToolTipText("Output 0 of this transaction; used to extend this chain of Satoshi Coins");
         mainPanel.add(txtAddressVout0, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(560, 20), new Dimension(560, 20), new Dimension(560, 20), 0, false));
         lblName = new JLabel();
         lblName.setEnabled(false);
         lblName.setText("Name");
+        lblName.setToolTipText("Enter the name of the bank followed by your name");
         mainPanel.add(lblName, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, 20), new Dimension(50, 20), new Dimension(50, 20), 0, false));
         txtName = new JTextField();
         txtName.setEnabled(false);
+        txtName.setToolTipText("Enter the name of the bank followed by your name");
         mainPanel.add(txtName, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(560, 20), new Dimension(560, 20), new Dimension(560, 20), 0, false));
         comboFee = new JComboBox();
         mainPanel.add(comboFee, new GridConstraints(7, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(560, 20), new Dimension(560, 20), new Dimension(560, 20), 0, false));
@@ -720,6 +729,7 @@ public class SC extends JFrame {
         lblCoinInfo.setHorizontalAlignment(0);
         lblCoinInfo.setHorizontalTextPosition(0);
         lblCoinInfo.setText("Coin Address and Amount");
+        lblCoinInfo.setToolTipText("Enter the address for each coin followed by the amount, in $ATOSHIS, to be loaded (space delimited)");
         mainPanel.add(lblCoinInfo, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(620, 20), new Dimension(620, 20), new Dimension(620, 20), 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Tx Fee");
@@ -727,6 +737,7 @@ public class SC extends JFrame {
         chkBxFirstTime = new JCheckBox();
         chkBxFirstTime.setSelected(false);
         chkBxFirstTime.setText("First Time");
+        chkBxFirstTime.setToolTipText("Check here to begin a new chain of Satoshi Coins");
         mainPanel.add(chkBxFirstTime, new GridConstraints(2, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(620, 20), new Dimension(620, 20), new Dimension(620, 20), 0, false));
     }
 
