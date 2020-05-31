@@ -25,7 +25,7 @@ import org.satoshiware.satoshicoins.SC;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.print.*;
-import java.io.File;
+import java.util.Objects;
 
 import javax.swing.*;
 
@@ -160,8 +160,7 @@ public class Main extends JFrame {
                         Main main = new Main("Keystickers");
 
                         try { // Load icon in the upper left of this window
-                            String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                            main.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+                            main.setIconImage((new ImageIcon(Objects.requireNonNull(main.getClass().getClassLoader().getResource("satoshiware_icon.png")))).getImage());
                         } catch (Exception ignored) {
                         }
 

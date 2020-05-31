@@ -30,6 +30,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.*;
 
@@ -105,8 +106,7 @@ public class MouseEntropy extends JPanel implements MouseMotionListener {
             JFrame frame = new JFrame("Collect Mouse Entropy");
 
             try { // Load icon in the upper left of this window
-                String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+                frame.setIconImage((new ImageIcon(Objects.requireNonNull(MouseEntropy.class.getClassLoader().getResource("satoshiware_icon.png")))).getImage());
             } catch (Exception ignored) {
             }
 

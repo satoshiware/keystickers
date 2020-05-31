@@ -39,7 +39,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
@@ -287,8 +286,7 @@ public class SC extends JFrame {
                 JFrame frame = new JFrame("Loading Coins");
 
                 try { // Load icon in the upper left of this window
-                    String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                    frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+                    frame.setIconImage((new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("satoshiware_icon.png")))).getImage());
                 } catch (Exception ignored) {
                 }
 
@@ -323,8 +321,7 @@ public class SC extends JFrame {
             SC sc = new SC("Satoshi Coins" + (testnet ? " (TESTNET)" : ""), testnet);
 
             try { // Load icon in the upper left of this window
-                String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                sc.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+                sc.setIconImage((new ImageIcon(Objects.requireNonNull(sc.getClass().getClassLoader().getResource("satoshiware_icon.png")))).getImage());
             } catch (Exception ignored) {
             }
 

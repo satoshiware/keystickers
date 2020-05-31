@@ -25,6 +25,7 @@ import org.satoshiware.satoshicoins.SC;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 import javax.swing.*;
 
 public class KSGenerator {
@@ -63,8 +64,7 @@ public class KSGenerator {
                 JFrame frame = new JFrame(name);
 
                 try { // Load icon in the upper left of this window
-                    String iconPath = new File(SC.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-                    frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconPath.substring(0, iconPath.lastIndexOf(File.separator) + 1) + "classes" + File.separator + "satoshiware_icon.png"));
+                    frame.setIconImage((new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("satoshiware_icon.png")))).getImage());
                 } catch (Exception ignored) {
                 }
 
