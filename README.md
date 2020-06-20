@@ -1,80 +1,69 @@
-# **Keystickers – Bitcoin Wallets That Stick**
-The open source software presented here facilitates the production of Keystickers. More information can be found here: [Satoshiware.org/Keystickers](http://www.Satoshiware.org/Keystickers). This software is offered “as-is”, without warranty, and disclaiming liability for any damage resulting from its use.
+## Keystickers: Bitcoin Wallets that Stick
+Keystickers are single use Bitcoin wallets that adhere to the back of your business cards. Once your sticker sheets are printed, the private keys are covered with security holographic scratch-off stickers.
 
-It is highly recommended that each user audit and compile the source code for themselves. The goal should be to eliminate as many _trust vectors_ as possible.
+The business cards must indicate the person who manufactured and applied the Keystickers. This individual is known as the “Local Satoshi”. He/She is local to the community, well-known, very competent, and highly trusted. With Keystickers, the “Trust Vector” is simplified and easily understood by the clients; they will know exactly where to go for all their Bitcoin needs. Keystickers are great tools to introduce Bitcoin security concepts, create positive first-time experiences, and ultimately, advance clients to the next level (hardware wallets).
 
-## Word of Caution
-The manufacture and distribution of Bitcoin wallets can be very rewarding when done properly. Your recipients will be empowered to control the keys to their own bitcoins; however, their dependence upon your integrity and your competence requires serious consideration. Failure to follow security precautions may lead to undesirable consequences. The more time and prudence invested into your own Keysticker setup will set the tone for the service you provide. Please visit the [wiki](https://github.com/Satoshiware/Keystickers/wiki/Secure-Setup) for additional information regarding secure setups.
+Sticker sheets can be ordered from [Online Labels](https://www.onlinelabels.com/products/ol4143GF) (Gold: [OL4143GF](https://www.onlinelabels.com/products/ol4143GF), White: [OL4143WX](https://www.onlinelabels.com/products/ol4143WX))
 
-## Built With
--   [OpenJDK](http://openjdk.java.net/) is the open source version of Java. Open source software promotes innovation and security while discouraging foul play. See [Ad](https://adoptopenjdk.net/)[opt](https://adoptopenjdk.net/)[O](https://adoptopenjdk.net/)[pen](https://adoptopenjdk.net/)[JDK](https://adoptopenjdk.net/)[.net](https://adoptopenjdk.net/) for install instructions.
+Security holographic scratch-off stickers can be purchased from [Integraf](https://www.integraf.com/) (Product#: 7931-SC)  
+<sub>Note: Production setup is over 1K USD. Last quote for 10,000 scratch-off stickers (6/1/2020) was around 1.65K USD (2.65K Total).</sub>
 
--   Compiled with [Maven](https://maven.apache.org/) for a simplified build process that's easy to duplicate.
+This open source software was created to facilitate the production of Keystickers (and [Satoshi Coins](https://github.com/Satoshiware/Satoshi-Coins)). This software is offered “as-is”, without warranty, and disclaiming liability for any damage resulting from its use. The manufacturer of the stickers
 
--   Java GUI programs are fairly dependent on the IDE used to create them. Keystickers uses [IntelliJ IDEA Community](https://www.jetbrains.com/idea/). It is free and open source.
+<img src="media/print.jpg" width="400"> <img src="media/white.jpg" width="412">
 
-## Running the Software
-After a successful OpenJDK install, download the [latest Keystickers' release](https://github.com/Satoshiware/Keystickers/releases) from GitHub and verify the SHA256 checksum. Cross-check the checksum value from a reliable source. Unzip|Extract the download and then unzip|extract the file "RunKeystickers-_revision_.(zip|tar.gz)". The unpacked RunKeystickers-_revision_ folder contains everything needed to run the software; move it to a desired location.
+<img src="media/holo.jpg" width="456"> <img src="media/scratch.jpg" width="400">
 
-From the command shell/prompt, change the directory to the RunKeystickers-_revision_ folder and execute the command **java -jar keystickers-**_**revision**_**.jar -v**  Note: the "-s" switch can be used instead of "-v" to skip the verification at startup of the external jar files (not recommended for production).
+For a more professional appeal and better security, use the GOLD stickers. Light is impenetrable from underneath!
 
-For more information on using the software, vist the [Software Overview](https://github.com/Satoshiware/Keystickers/wiki/Software-Overview) in the wiki. The wiki also includes a section for setting up [Hardware RNGs](https://github.com/Satoshiware/Keystickers/wiki/Hardware-RNGs) for additional entropy and redundancy.
+<img src="media/gold.jpg" width="400">
 
-## Compiling
-Keystickers is compiled with Maven. This makes the process of compilation identical to other maven projects. The pom.xml file contains all the details unique to this project for a successful automated build. Visit [Maven's web site](https://maven.apache.org/) for additional information on downloading, installing, and running Maven.
-  
-## Development
-Any Java IDE is sufficient for over viewing and improving the code; however, for GUI specific enhancements, the IntelliJ IDE is required. Java GUIs are fairly dependent on their respective IDEs. In this repository, there is a directory named ".idea" that contains IntelliJ settings for successfully loading the Keystickers' source code. Visit the wiki, [IntelliJ IDE Setup](https://github.com/Satoshiware/Keystickers/wiki/IntelliJ-IDE-Setup), for initial opening and configuring the source code with IntelliJ.
+## Specifications
+The security holographic scratch-off stickers are 40.6 mm in diameter and 30 um thick. They have a tough plastic film that protects and separates the private key from the scratch surface. The [PDF specification](specs/Holographic.pdf) for Satoshiware's security holographic scratch-off stickers is part of this repository as well as a [video](media/video.mp4) of the master proof.
 
-## Auditing
-The more eyes on this project, the better it will be for everyone. If you have a GitHub account, be sure to [watch](https://help.github.com/articles/watching-and-unwatching-repositories/) this repository. If you have the capacity to audit Java code, consider becoming a contributor and/or reviewer today. A good audit begins with a sound understanding of how all the pieces of code interoperate. Visit the [Code Overview](https://github.com/Satoshiware/Keystickers/wiki/Code-Overview) in the wiki for a quick jump start into the details of the Keystickers' source code.
+The Keysticker sheets are 8 <sup>1</sup>/<sub>2</sub>" x 11" and will fit any standard printer. The technical drawing is available within this repository ([PDF](specs/Keystickers.dwg.pdf) or [DWG](specs/Keystickers.dwg)). A simple wired monochrome laser printer (e.g. HP LaserJet Pro M402n) is highly recommended for the job. These sheets are thicker compared to standard paper (especially the gold sheets); adjust the printer accordingly to avoid the toner from flaking off. Also, minimize the toner thickness as much as possible; otherwise, the private key may be slightly discernible underneath the scratch-off sticker. Note: The Keysticker software can control the private key grayscale color to further mitigate this problem; just make sure the QR is still easily scannable.
+
+## Running
+After downloading and extracting the latest release, extract the contents of the file “RunKeystickers-$REV.(zip|tar.gz)”. From the shell (or command prompt), move to the appropriate directory and execute “java -jar keystickers-$REV.jar -k”
+
+If running on a Raspberry Pi with a hardware RNG (RPi 3 B+ or later), the software will try to read from /dev/hwrng for additional entropy. Make sure the RNG is set with the appropriate read access privileges.
+
+Note: [OpenJDK](http://openjdk.java.net/) is the open source version of Java. Open source software promotes innovation and security while discouraging foul play. See [AdoptOpenJDK.net](https://adoptopenjdk.net/) for install instructions.
 
 ## External Dependencies
-Listed below are the external libraries used for this software. These external libraries are not compiled into the main program. Use the "-v" program argument at run time to calculate and cross-check their SHA256 checksums. This will ensure they have not been compromised.
+External libraries are not compiled into the main program. Use the "-v" switch, instead of "-k", at run time to calculate and cross-check their SHA256 checksums. This will ensure they have not been compromised.
 
-**org.bitcoinj:bitcoinj-core**
-_bitcoinj_ is the Java library for working with the _Bitcoin_ protocol. It is used to generate public keys  from
-the private keys and to encode them (private & public) in the proper format.
--   Link: [https://bitcoinj.github.io](https://bitcoinj.github.io/)
--   Source: [https://github.com/bitcoinj/bitcoinj](https://github.com/bitcoinj/bitcoinj)
--   JAR: [https://mvnrepository.com/artifact/org.bitcoinj/bitcoinj-core](https://mvnrepository.com/artifact/org.bitcoinj/bitcoinj-core)
+## Compiling
+Keystickers is compiled with Maven. Visit [Maven's web site](https://maven.apache.org/) for additional information on downloading, installing, and running their software project management tool.
 
-**org.jitsi:bccontrib**
-Java implementation of the Fortuna random number generator. Used as an additional source of randomness to increase robustness for generating private keys.
--   Link: [https://jitsi.org](https://jitsi.org/)
--   Source: [https://github.com/jitsi/bccontrib](https://github.com/jitsi/bccontrib)
--   JAR: [https://mvnrepository.com/artifact/org.jitsi/bccontrib](https://mvnrepository.com/artifact/org.jitsi/bccontrib)
+## Development
+[IntelliJ IDEA Community](https://www.jetbrains.com/idea/) was used for the development of this project. GUI specific changes will most likely require this IDE for successful modifications.
 
-**com.google.zxing:core**
-Zxing is a barcode image processing library implemented in Java. It is used to encode the public and private keys as QR codes.
--   Link: [https://opensource.google.com/projects/zxing](https://opensource.google.com/projects/zxing)
--   Source: [https://github.com/zxing/zxing](https://github.com/zxing/zxing)
--   JAR: [https://mvnrepository.com/artifact/com.google.zxing/core](https://mvnrepository.com/artifact/com.google.zxing/core)
+**Getting started with IntelliJ**
 
-**com.intellij:forms_rt**
-Jetbrains UiDesigner. This library is included in the pom.xml for a successful GUI build using Maven. It is supplied by default when compiling/running from the IntelliJ IDE.
--   Link: [https://www.jetbrains.com/idea](https://www.jetbrains.com/idea/)
--   Source: [https://github.com/JetBrains/intellij-community/tree/master/platform/forms_rt](https://github.com/JetBrains/intellij-community/tree/master/platform/forms_rt)
--   JAR: [https://mvnrepository.com/artifact/com.intellij/forms_rt](https://mvnrepository.com/artifact/com.intellij/forms_rt)
+* File -> Open
+    * Find and select the Keysticker's project from its root directory
+    * Intellij will recognize maven and will adjust its settings accordingly
+ 
+* File -> Project Structure -> Project Settings -> Project
+    * Select the appropriate "Project SDK"
+    * Set "Project language level" to 8
+    * Configure "Project compiler output" Path (e.g. "Keysticker Project Directory"\out)
 
-**org.slf4j:slf4j-jdk14**
-The Simple Logging Facade for Java (SLF4J) serves as an abstraction for various logging frameworks.
--   Link: [https://www.slf4j.org](https://www.slf4j.org/)
--   Source: [https://github.com/qos-ch/slf4j](https://github.com/qos-ch/slf4j)
--   JAR: [https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14)
+* Project Structure -> Project Settings -> Modules -> Sources
+    * Set "Language level" to 8
 
-## Contributing
-This project could sure use better documentation, more testing, and multi-lingual support. If you find value in this project and have some skills available, please consider helping out. See [CONTRIBUTING.md](https://github.com/Satoshiware/Keystickers/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+* Project Structure -> Project Settings -> Modules -> Paths
+    * Configure "Output path" (e.g. "Keysticker Project Directory"\out\production)
+    * Configure "Test output path" (e.g. "Keysticker Project Directory"\out\test)
 
-## Versioning
-We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Satoshiware/Keystickers/tags).
+* Create Run configuration for Main.main()
+    * In the "Project" explorer, find the "Main" Java Class (src\main\java\org\satoshiware\keystickers\Main.java)
+    * Right click on the Java Class and click "Create 'Main.main()'..."
+    * Add the desired "Program arguments:" (“-v”, “-k”, “-s”, or “-t”)
+    * Note: The external libraries must be added to the "Keysticker Project Directory"\lib in order for verifications ("-v") to work from within the IntelliJ IDE.
 
-## Authors
-See list of [contributors](https://github.com/Satoshiware/Keystickers/graphs/contributors) who participated in this project.
+## Secure Setup
+If there are wireless features (WIFI, Bluetooth, etc.) in your setup, disabled them; hardware that cannot reliably turn off wireless connectivity should not be used. Use only wired components and don't forget to disconnect that wired LAN!
 
-## License
-This project is licensed under version 3 of the GNU General Public License - see [LICENSE](https://github.com/Satoshiware/Keystickers/blob/master/LICENSE) for details.
-
-## Acknowledgments
--   BitcoinJ Team ([BitcoinJ.GitHub.io](https://bitcoinj.github.io/))
--   Mike Caldwell ([Casascius Coin Creator](https://en.bitcoin.it/wiki/Casascius_physical_bitcoins))
+Once the print jobs are complete, the entire setup becomes a liability. All residue of any private key must be obliterated: Write random data before formatting and then flush out the printer with a few dummy print jobs. If there are still doubts that the printer may be storing sensitive data then destroy its main PCB.
