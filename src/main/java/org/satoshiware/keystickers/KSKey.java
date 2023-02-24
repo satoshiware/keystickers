@@ -21,34 +21,26 @@ import org.bitcoinj.core.*;
 
 public class KSKey {
     private final ECKey key;
-    public boolean testnet;
 
     // Construct a KSKey with the private key derived from the passed bytes
-    public KSKey(byte[] bytes, boolean forTestnet) { // Constructor 1
+    public KSKey(byte[] bytes) { // Constructor 1
         if(bytes.length != 32) {
             throw new IllegalArgumentException("KSKey constructor requires exactly 32 bytes of random data");
         }
 
         key = ECKey.fromPrivate(bytes);
-
-        testnet = forTestnet;
     }
 
     // Returns native segwit public address (bech32) encoded with the "version" number
-    public String getP2WPKH(int version) {
+    public String getP2WPKH(String hrp, int version) {
         byte[] convertedBytes = Bech32.convertBits(key.getPubKeyHash(), 0, key.getPubKeyHash().length, 8, 5, true);
         byte[] bytes = new byte[1 + convertedBytes.length];
         bytes[0] = (byte) (Bech32.encodeToOpN(version) & 0xff);
         System.arraycopy(convertedBytes, 0, bytes, 1, convertedBytes.length);
-
-        if(testnet){
-            return Bech32.encode("tb", bytes);
-        }else {
-            return Bech32.encode("bc", bytes);
-        }
+        return Bech32.encode(hrp, bytes);
     }
 
-    public String getWIF() {
+    public String getWIF(boolean testnet) {
         if (testnet) {
             return key.getPrivateKeyAsWiF(NetworkParameters.fromID(NetworkParameters.ID_TESTNET)); // Testnet Leading Symbol: c
         }else {
