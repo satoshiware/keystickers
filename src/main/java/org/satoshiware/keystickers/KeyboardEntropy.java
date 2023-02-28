@@ -29,19 +29,16 @@ public class KeyboardEntropy {
 
     private static byte[] seed; // Array links to initial entropy passed in the constructor; it is updated for each mouse movement.
 
-    public static byte[] getEntropy() {
+    public static byte[] getEntropy(Scanner keyboard) {
         seed = new byte[SEEDSIZE];
 
         try { md5 = MessageDigest.getInstance("MD5"); } catch(NoSuchAlgorithmException ignored) {}
-        Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Collecting Entropy... Enter a whole lotta random text and numbers:\n");
         byte[] input = keyboard.nextLine().getBytes();
 
         for(int i = 0; i < input.length; i++)
             updateSeed(i, System.nanoTime() * (long)input[i]);
-
-        keyboard.close();
 
         byte[] out = new byte[OUTPUTLENGTH];
         System.out.println("\nEntropy Created:");
