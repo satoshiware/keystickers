@@ -1,5 +1,5 @@
 /*
- *      Main class (GUI) for generating and verifying Keystickers & Satoshi Coins
+ *      Main class for generating Keystickers & Satoshi Coins
  *
  *      This program is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ package org.satoshiware.keystickers;
 import org.satoshiware.keystickers.random.*;
 
 import java.awt.print.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,35 +29,53 @@ public class Main {
             System.out.println("    -k          Print Keystickers");
             System.out.println("    -s          Print Satoshi Coins");
         } else if (args.length == 1) {
+            Scanner scanner = new Scanner(System.in);
+
             KSGenerator generator = new KSGenerator(); // Container for all random sources. Each random source is mixed (XOR'd) together.
             generator.addGenerator(new SecureRandom());
-            generator.addGenerator(new FortunaGenerator(KeyboardEntropy.getEntropy()));
+            generator.addGenerator(new FortunaGenerator(KeyboardEntropy.getEntropy(scanner)));
+
+            int count = 10; // Number of Pages
+            boolean outline = false; // Keysticker outline present
+            float darkness = 100; // Darkness (%)
+            String hrp = "bc"; // Human Readable Prefix for each address
+            int amount = 1000000; // Amount of satoshis for each Satoshi Coin
 
             switch (args[0]) {
                 case "-v":
-                    JarChecksums.run(System.getProperty("user.dir") + System.getProperty("file.separator") + "lib");
                     generator.runQC();
+                    JarChecksums.run(System.getProperty("user.dir") + System.getProperty("file.separator") + "lib");
                     break;
                 case "-k":
-                    /* todo:
-                        do inputs
-                        add satoshi coins
-                        can we make it output to pdf without gui? if not, is this going to run on the raspberry pi??
-                     */
-                    //print(generator, int pgTotal, boolean keystickers, String hrp, boolean outline, float darkness, int amount)
-                    print(generator, 2, true, "az", false, 50, 0);
-                    print(generator, 4, true, "dg", true, 75, 0);
-                    print(generator, 6, true, "ut", true, 100, 0);
+                    System.out.print("Number of Pages (default = 10): ");
+                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    System.out.print("Outline (true/false): ");
+                    try {outline = Boolean.parseBoolean(scanner.nextLine());} catch (Exception ignored){};
+                    System.out.print("Darkness (0 to 100): ");
+                    try {darkness = Float.parseFloat(scanner.nextLine());} catch (Exception ignored){};
+                    System.out.print("Human Readable Prefix (default = \"bc\"): ");
+                    hrp = scanner.nextLine();
+                    if (hrp.isEmpty())
+                        hrp = "bc";
 
+                    print(generator, count, true, hrp.toLowerCase(), outline, darkness, 0);
                     break;
                 case "-s":
+                    System.out.print("Number of Pages (default = 10): ");
+                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    System.out.print("Satoshi Amount: ");
+                    try {amount = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    if (amount != 1000000 && amount != 500000 && amount != 250000 && amount != 100000 && amount != 50000 && amount != 25000 && amount != 10000)
+                        amount = 1000000;
 
-
+                    print(generator, count, false, "bc", false, 100, amount);
                     break;
                 default:
                     System.out.println("Error! Invalid program argument!");
                     break;
             }
+
+            scanner.close();
         } else {
             System.out.println("Error! Too many program arguments!");
         }
