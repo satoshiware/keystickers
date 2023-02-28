@@ -31,9 +31,6 @@ public class Main {
             KSGenerator generator = new KSGenerator(); // Container for all random sources. Each random source is mixed (XOR'd) together.
             generator.addGenerator(new SecureRandom());
             generator.addGenerator(new FortunaGenerator(KeyboardEntropy.getEntropy()));
-            RPiHWRNG HWRNG = new RPiHWRNG(); // Open a stream to the Raspberry Pi's HWRNG if available.
-            if (HWRNG.open() && HWRNG.fillStack())
-                generator.addGenerator(HWRNG);
 
             switch (args[0]) {
                 case "-v":
