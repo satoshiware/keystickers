@@ -82,18 +82,7 @@ public class JarChecksums {
             case 13:    file = "bccontrib-1.0.jar";             spacing += 3;   checksum = "cd5514068306262ce35c25122d75ddcfc406a672a0b41a8ef267201d94784cc3";  description = "org.jitsi.bccontrib 1.0 (Fortuna CSPRNG)"; break;
             case 14:    file = "bcprov-jdk15on-1.48.jar";       spacing -= 3;   checksum = "804b7e2e3b9ac771dfd3b43de16666ac6008f8600f48f28ddc94e39a114e2288";  description = "    -> Fortuna transitive dependency (1/1)"; break;
             case 15:    file = "slf4j-jdk14-1.7.12.jar";        spacing -= 2;   checksum = "a13362d9865740511ab35e4181e6821c4876d92fa770bfcc37e96086d924f75c";  description = "Simple Logging Facade for Java (SLF4J.org) JDK"; break;
-            case 16:    file = "forms_rt-7.0.3.jar";            spacing += 2;   checksum = "51d100f7f19e85bce8fd8fda551e433188174994f470d6e9f51c7f7b2227d9e3";  description = "Jetbrains UiDesigner 7.0.3"; break;
-            case 17:    file = "asm-commons-3.0.jar";           spacing += 1;   checksum = "32b516ca5738b87077afac83d08bae7e3f3cea4ce6ff6d7a18506b38c3729640";  description = "    -> UiDesigner transitive dependency (1/5)"; break;
-            case 18:    file = "asm-tree-3.0.jar";              spacing += 4;   checksum = "ad82cad09bb2f7752d4ddb8ebb2aaf893ecc4a801bcbe813c75027830f496255";  description = "    -> UiDesigner transitive dependency (2/5)"; break;
-            case 19:    file = "asm-3.0.jar";                   spacing += 9;   checksum = "bfcb35900ec1d5a1346fb0dc91dd9d772cf93e3165cb8701aec3ed277b5a53ba";  description = "    -> UiDesigner transitive dependency (3/5)"; break;
-            case 20:    file = "forms-1.1-preview.jar";         spacing -= 1;   checksum = "26b0fc745ea051b57462be22a150c7600dbac6716b24cc60a5ecc0e8085c41a0";  description = "    -> UiDesigner transitive dependency (4/5)"; break;
-            case 21:    file = "jdom-1.0.jar";                  spacing += 8;   checksum = "3b23bc3979aec14a952a12aafc483010dc57579775f2ffcacef5256a90eeda02";  description = "    -> UiDesigner transitive dependency (5/5)"; break;
-            case 22:    file = "annotations-19.0.0.jar";        spacing -= 2;   checksum = "12ff01eeaf0c09c6a68f2ec024b3bf9fa4cad6e68b74b968bf62c7f759047032";  description = "JetBrains Java Annotations 19.0.0"; break;
-            case 23:    file = "bitcoin-rpc-client-1.2.0.jar";  spacing -= 8;   checksum = "9179d0e92de3d708112a47668c86ad2940ad80052bd630e22f3cc71da54bc5ba";  description = "Java Bitcoind RPC Client 1.2.0"; break; // Source Code: https://github.com/Polve/bitcoin-rpc-client (Commit #: e343306199969432f8c12cb4f285b1ee4690f50b - May 22, 2020)
-            case 24:    file = "owner-java8-1.0.10.jar";        spacing -= 2;   checksum = "84f94b5952fe602fad62f7eb8a585ca0fd6416cd3ff47e9747e8c1a6356a57f0";  description = "    -> RPC Client transitive dependency (1/3)"; break;
-            case 25:    file = "protobuf-java-2.6.1.jar";       spacing -= 3;   checksum = "55aa554843983f431df5616112cf688d38aa17c132357afd1c109435bfdac4e6";  description = "    -> RPC Client transitive dependency (2/3)"; break;
-            case 26:    file = "commons-lang3-3.9.jar";         spacing -= 1;   checksum = "de2e1dcdcf3ef917a8ce858661a06726a9a944f28e33ad7f9e08bea44dc3c230";  description = "    -> RPC Client transitive dependency (3/3)\n"; break;
-
+            
             default:    file = null;                            spacing = -1;   checksum = null;                                                                description = null; break;
         }
 
