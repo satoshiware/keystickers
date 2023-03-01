@@ -295,14 +295,12 @@ public class SCSheet implements PrintableKeys {
 
     // Write the truncated address (tAddress) within the given circle.
     private void circumscribeAddress(Graphics2D g, String tAddress, int x, int y) {
-        String tAddressShifted = tAddress.substring((tAddress.length() / 2) + (tAddress.length() % 2)) + "•" + tAddress.substring(0, tAddress.length() / 2);
         final int tAddressWidth = g.getFontMetrics(new Font(thisFont, FStyle, 192)).stringWidth(tAddress);
-        final int tAddressShiftedWidth = g.getFontMetrics(new Font(thisFont, FStyle, 192)).stringWidth(tAddressShifted);
         final float ascent = getAscent(g, tAddress, 192);
 
-        drawString(g, tAddressShifted, x, y, 0, (1128 - tAddressShiftedWidth) / 2, (1128 / 2) + (int)(ascent / 4) - 192, 192);
+        drawString(g, tAddress, x, y, 0, (1128 - tAddressWidth) / 2, (1128 / 2) + (int)(ascent / 4) - 192, 192);
         drawString(g, tAddress, x, y, 0, (1128 - tAddressWidth) / 2, (1128 / 2) + (int)(ascent / 4), 192);
-        drawString(g, tAddressShifted, x, y, 0, (1128 - tAddressShiftedWidth) / 2, (1128 / 2) + (int)(ascent / 4) + 192, 192);
+        drawString(g, tAddress, x, y, 0, (1128 - tAddressWidth) / 2, (1128 / 2) + (int)(ascent / 4) + 192, 192);
     }
 
     // Divides the private key string (by text length not character length) into two parts.
