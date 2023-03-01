@@ -52,23 +52,23 @@ public class Main {
                     break;
                 case "-k":
                     System.out.print("Number of Pages (default = 10): ");
-                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){}
                     System.out.print("Outline (true/false): ");
-                    try {outline = Boolean.parseBoolean(scanner.nextLine());} catch (Exception ignored){};
+                    try {outline = Boolean.parseBoolean(scanner.nextLine());} catch (Exception ignored){}
                     System.out.print("Darkness (0 to 100): ");
-                    try {darkness = Float.parseFloat(scanner.nextLine());} catch (Exception ignored){};
+                    try {darkness = Float.parseFloat(scanner.nextLine());} catch (Exception ignored){}
                     System.out.print("Human Readable Prefix (default = \"bc\"): ");
-                    hrp = scanner.nextLine();
-                    if (hrp.isEmpty())
-                        hrp = "bc";
+                    String nextline = scanner.nextLine();
+                    if (!nextline.isEmpty())
+                        hrp = nextline;
 
                     print(generator, count, true, hrp.toLowerCase(), outline, darkness, 0);
                     break;
                 case "-s":
                     System.out.print("Number of Pages (default = 10): ");
-                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    try {count = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){}
                     System.out.print("Satoshi Amount: ");
-                    try {amount = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){};
+                    try {amount = Integer.parseInt(scanner.nextLine());} catch (Exception ignored){}
                     if (amount != 1000000 && amount != 500000 && amount != 250000 && amount != 100000 && amount != 50000 && amount != 25000 && amount != 10000)
                         amount = 1000000;
 
