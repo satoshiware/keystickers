@@ -18,7 +18,11 @@ package org.satoshiware.keystickers;
 
 import org.satoshiware.keystickers.random.*;
 
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import java.awt.*;
 import java.awt.print.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -121,10 +125,15 @@ public class Main {
 
         Thread thread = new Thread("Printing") {
             public void run() {
+                // Set up an attribute set to remove the icon from the print dialog box.
+                PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+                aset.add(javax.print.attribute.standard.DialogTypeSelection.NATIVE);
+                aset.add(new javax.print.attribute.standard.DialogOwner(new Frame()));
+
                 try {
                     PrinterJob job = PrinterJob.getPrinterJob();
                     job.setPageable(book);
-                    if (job.printDialog()) {
+                    if (job.printDialog(aset)) {
                         job.print();
                     }
                 } catch (PrinterException ignored) {
