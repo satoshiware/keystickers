@@ -1,4 +1,6 @@
-This free and open source software was created to facilitate the <ins>production</ins> of Keystickers (and [Satoshi Coins](https://github.com/Satoshiware/satoshicoins)). This software is offered “as-is”, without warranty, and disclaiming liability for any damage resulting from its use.
+This free and open source software was created to facilitate the <ins>production</ins> of Keystickers (and [Satoshi Coins](https://github.com/Satoshiware/satoshicoins)) using Bech32, version 0, addresses. 
+
+This software is offered “as-is”, without warranty, and disclaiming liability for any damage resulting from its use.
 
 ## Keystickers: Bitcoin Wallets that Stick
 Keystickers are single use Bitcoin wallets that adhere to the back of your business cards. Once your sticker sheets are printed, the private keys are covered with security holographic scratch-off stickers.
