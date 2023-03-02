@@ -126,9 +126,10 @@ public class Main {
         Thread thread = new Thread("Printing") {
             public void run() {
                 // Set up an attribute set to remove the icon from the print dialog box.
+                Frame frame = new Frame();
                 PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
                 aset.add(javax.print.attribute.standard.DialogTypeSelection.NATIVE);
-                aset.add(new javax.print.attribute.standard.DialogOwner(new Frame()));
+                aset.add(new javax.print.attribute.standard.DialogOwner(frame));
 
                 try {
                     PrinterJob job = PrinterJob.getPrinterJob();
@@ -136,8 +137,8 @@ public class Main {
                     if (job.printDialog(aset)) {
                         job.print();
                     }
-                } catch (PrinterException ignored) {
-                }
+                } catch (PrinterException ignored) {}
+                frame.dispose();
             }
         };
         thread.start();
