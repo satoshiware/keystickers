@@ -30,7 +30,7 @@ public class JarChecksums {
     public static boolean run(String filepath) {
         if(filepath == null) return false;
 
-        System.out.println("\nVerifying the checksum (SHA-256) of each external library in the directory \"" + filepath + "\"");
+        System.out.println("Verifying the checksum (SHA-256) of each external library in the directory \"" + filepath + "\"");
 
         boolean valid = true;
         try {
@@ -44,6 +44,14 @@ public class JarChecksums {
 
                 index++;
             }
+
+            System.out.println("Success! External libraries have NOT been tampered!\n");
+            System.out.println("Remember to verify the Open JDK (version 19.0.2) install file checksums (SHA-256):");
+            System.out.println("\topenjdk-19.0.2_linux-aarch64_bin.tar.gz\t\t95728187b4b5607c49de751a209ecda6e04d9ed7cee603cf36f454239106527b");
+            System.out.println("\topenjdk-19.0.2_linux-x64_bin.tar.gz\t\t\t34cf8d095cc071e9e10165f5c45023f96ec68397fdaabf6c64bfec1ffeee6198");
+            System.out.println("\topenjdk-19.0.2_macos-aarch64_bin.tar.gz\t\t4317442e14c5c2f4f698db0e41347df99d050a32137b2a02dfec28ed856577cc");
+            System.out.println("\topenjdk-19.0.2_macos-x64_bin.tar.gz\t\t\tc57c7c511706738fff6540945e0159e97b8b328777e6460977dd64e00f4c2c0b");
+            System.out.println("\topenjdk-19.0.2_windows-x64_bin.zip\t\t\t9f70eba3f2631674a2d7d3aa01150d697f68be16ad76662ff948d7fe1b4985d8");
         }catch (IOException e) {
             System.out.println("\nERROR! IO exception accessing and reading the libraries!\n" + e.getMessage());
             return false;
