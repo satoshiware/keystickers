@@ -34,7 +34,7 @@ public class KeyboardEntropy {
 
         try { md5 = MessageDigest.getInstance("MD5"); } catch(NoSuchAlgorithmException ignored) {}
 
-        System.out.println("Collecting Entropy... Enter a whole lotta random text and numbers:\n");
+        System.out.println("Collecting Entropy... Enter a whole lotta random text (capital and lowercase letters, numbers, symbols, and special characters):\n");
         byte[] input = keyboard.nextLine().getBytes();
 
         for(int i = 0; i < input.length; i++)
