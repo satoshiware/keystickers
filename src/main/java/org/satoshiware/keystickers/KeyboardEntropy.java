@@ -41,7 +41,7 @@ public class KeyboardEntropy {
             updateSeed(i, System.nanoTime() * (long)input[i]);
 
         byte[] out = new byte[OUTPUTLENGTH];
-        System.out.println("\nEntropy Created:");
+        System.out.println("\nKeyboard Entropy Created:");
         for (int i = 0; i < SEEDSIZE / OUTPUTLENGTH; i++) {
             System.arraycopy(seed, i * OUTPUTLENGTH, out, 0, OUTPUTLENGTH);
             System.out.println("\t" + bytesToHex(out));

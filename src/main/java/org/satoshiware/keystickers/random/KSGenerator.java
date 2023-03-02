@@ -48,7 +48,7 @@ public class KSGenerator {
 
     // This method shows a quick visual check of the integrity of each RNG
     public void runQC() {
-        System.out.println("\nVisual RNG QC Check:");
+        System.out.println("Visual RNG Sanity Check:");
         for (RandomInterface generator : generators) {
             System.out.println("\t" + generator.getName() + ":");
 
