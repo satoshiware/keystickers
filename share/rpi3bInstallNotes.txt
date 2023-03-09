@@ -1,0 +1,23 @@
+# Using a Raspberry Pi 3b with the latest Raspbian OS (Desktop Version - 32bit) installed.
+# Printer: HP LaserJet M402n (wireless connectivity physically removed).
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+
+sudo apt-get -y install default-jdk
+
+# With the printer plugged in and powered
+sudo apt-get -y install cups
+sudo usermod -a -G lpadmin $ADMINUSER
+sudo /etc/init.d/cups restart
+
+# Printer settings accessed via browser: http://localhost:631
+# May need to add printer manually: 
+#	http://localhost:631 -> Administration -> Add Printer -> Login $ADMINUSER/$ADMINPASSWD
+
+# Notes: java.awt.print dialog is not printing, 
+# 	but it will output in postscript (.ps). After the postscript file is created, 
+#	open it in an application with better printing capabilities and print from there.
+
+# If the output file was saved, make sure it is securely deleted!
+shred -uvz -n 6 $FILENAME # This will Shred 6 times
