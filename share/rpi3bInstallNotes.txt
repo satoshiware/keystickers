@@ -35,5 +35,9 @@ sudo /etc/init.d/cups restart
 #   After the postscript file is created/saved, open the .ps file in the Raspbian's default application;
 #   it will have the printing capabilities to correctly and successfully print from there.
  
+# Remember to update the time! RPi's disconnected from the internet do not have the right time configured.
+# Keystickers sheets have the date and time printed on them. Examples:
+date --set="8 MAY 2023 17:16:00"
+
 # With the output file saved, make sure it is securely deleted!!!!!
 shred -uvz -n 6 $FILENAME # This will Shred 6 times
